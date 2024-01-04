@@ -1,3 +1,15 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = "https://bill-fan.com"
+theme = "hugo-starter-theme"
+
+# [menu]
+  # [[menu.main]]
+    # identifier = "posts"
+    # name = "Posts"
+    # url = "/posts"
+    # weight = 10
+
+  # [[menu.main]]
+    # identifier = "about"
+    # name = "About"
+    # url = "/about"
+    # weight = 20

@@ -1,4 +1,2 @@
-baseURL = "billfan.com"
 languageCode = "en-us"
 title = "Hi, I'm Bill Fan!"
-theme = "vitmat"
