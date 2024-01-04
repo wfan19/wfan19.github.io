@@ -2,7 +2,7 @@
 title: "Home"
 ---
 
-# Hi there
+# Hi, I'm Bill Fan!
 
 I’m a graduating senior at Olin College of Engineering and robotics researcher. I am interested in how computational models and bio-inspiration can help us design robots that can effectively work alongside us. So far, my work has taken me across three different labs between OSU, Olin, and UMass. 
 

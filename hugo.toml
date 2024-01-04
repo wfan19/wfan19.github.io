@@ -1,6 +1,20 @@
 baseURL = "https://bill-fan.com"
 theme = "hugo-starter-theme"
 
+[params.intro]
+header = "Hi, I'm Bill!"
+paragraph_1 = "I’m a graduating senior at Olin College of Engineering and robotics researcher. I am interested in how computational models and bio-inspiration can help us design robots that can effectively work alongside us. So far, my work has taken me across three different labs between OSU, Olin, and UMass."
+paragraph_2 = "Outside of research, I’ve also worked on SLAM and controls on autonomous systems, including an internship at Dusty Robotics."
+img_faceshot = "images/headshot.jpg"
+
+[params.section_1]
+show = true
+header = "Research"
+
+[params.section_2]
+show = true
+header = "Projects"
+
 # [menu]
   # [[menu.main]]
     # identifier = "posts"

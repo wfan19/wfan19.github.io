@@ -1,3 +1,34 @@
-{{ .Content }}
+<style>
+    .headshot_img{
+        width: 200px;
+        height: 200px;
+    }
+</style>
 
-{{ partial "footer.html" . }}
+<main>
+    <header class="header_section">
+        <!-- {{ .Content }} -->
+        <div>
+            <h1>{{ .Site.Params.intro.header }}</h1>
+            <h3>{{ .Site.Params.intro.paragraph_1 }}</h3>
+            <h3>{{ .Site.Params.intro.paragraph_2 }}</h3>
+        </div>
+        {{  with .Site.Params.intro.img_faceshot  }}
+            <div class="headshot_img", style="background: url({{ . | absURL }})"/>
+        {{  end  }}
+    </header>
+
+    {{ if .Site.Params.section_1.show }}
+    <section class="section">
+        <h1>{{ .Site.Params.section_1.header }}</h1>
+    </section>
+    {{ end }}
+
+    {{ if .Site.Params.section_2.show }}
+    <section class="section">
+        <h1>{{ .Site.Params.section_2.header }}</h1>
+    </section>
+    {{ end }}
+
+    {{ partial "footer.html" . }}
+</main>
