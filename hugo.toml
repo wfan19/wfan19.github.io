@@ -41,15 +41,31 @@ Submitted an abstract to IEEE OCEANS 2021. [abstract]"""
 show = true
 header = "Projects"
 
-# [menu]
-  # [[menu.main]]
-    # identifier = "posts"
-    # name = "Posts"
-    # url = "/posts"
-    # weight = 10
+[[params.projects_section.entry]]
+image="images/twist lab group.JPG"
+title="Twist Lab: a student-run soft robotics research group"
+width=2
 
-  # [[menu.main]]
-    # identifier = "about"
-    # name = "About"
-    # url = "/about"
-    # weight = 20
+[[params.projects_section.entry]]
+image="images/neato star.jpg"
+title="Art2D2: automatic robotic drawing!"
+
+[[params.projects_section.entry]]
+image="images/gcs success.png"
+title="Path planning w/ mixed-integer optimization"
+
+[[params.projects_section.entry]]
+image="images/cosserat rod image.png"
+title="Cosserat elastic rod model simulation"
+
+[[params.projects_section.entry]]
+image="images/colloidal glass sim.png"
+title="Simulating and rendering colloidal glass transitions"
+
+[[params.projects_section.entry]]
+image="images/ProbMod Final square.png"
+title="Inferring and simulating stochastic processes"
+
+[[params.projects_section.entry]]
+image="images/maglev.png"
+title="Electromagnetic levitation control"

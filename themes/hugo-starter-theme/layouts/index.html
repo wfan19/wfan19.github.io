@@ -19,7 +19,7 @@
             font-size: 20
         }
 
-        .stylized_img{
+        .outline_shadow{
             border: 3px solid #2b2b2b;
             border-top-left-radius: 7px;
             border-top-right-radius: 7px;
@@ -30,8 +30,9 @@
 
         .headshot_img{
             /* TODO: Fix dimensions */
-            width: 200px;
+            width: 100%;
             height: 200px;
+            object-fit:cover;
         }
 
         .header_container{
@@ -50,7 +51,7 @@
             flex-direction: column;
         }
 
-        .research_item{
+        .research_entry{
             display: flex;
             flex-direction: row;
             column-gap: 20px;
@@ -59,6 +60,17 @@
         .research_description{
             display: flex;
             flex-direction: column;
+        }
+
+        .project_container{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap:16px
+        }
+
+        .project_entry{
+            display:flex;
+            flex-direction:column
         }
     </style>
 </head>
@@ -80,19 +92,22 @@
             </div>
 
             {{  with .Site.Params.intro.img_faceshot  }}
-                <div class="headshot_img stylized_img", style="background: url({{ . | absURL }})"/>
+                <div class="headshot_img outline_shadow", style="background: url({{ . | absURL }})"/>
             {{  end  }}
         </div>
     </header>
 
     {{ if .Site.Params.research_section.show }}
+    {{ with .Site.Params.research_section }}
     <section class="section">
-        <h1>{{ .Site.Params.research_section.header }}</h1>
+        <h1>{{ .header }}</h1>
 
         <div class="research_container">
-            {{ range .Site.Params.research_section.entry }}
-                <div class="research_item">
-                    <div class="stylized_img headshot_img", style="background: url({{ .image | absURL }})"></div>
+
+            {{/*  For each research entry, create a research-entry card  */}}
+            {{ range .entry }}
+                <div class="research_entry">
+                    <div class="outline_shadow headshot_img", style="background: url({{ .image | absURL }})"></div>
                     <div class="research_description">
                         <h3>{{ .title }}</h3>
                         <h6>{{ .authors }}</h6>
@@ -100,14 +115,38 @@
                     </div>
                 </div>
             {{end}}
+
         </div>
     </section>
     {{ end }}
+    {{ end }}
 
     {{ if .Site.Params.projects_section.show }}
+    {{ with .Site.Params.projects_section}}
     <section class="section">
-        <h1>{{ .Site.Params.projects_section.header }}</h1>
+        <h1>{{ .header }}</h1>
+
+        <div class = "project_container">
+
+            {{/*  For each project entry, create a small project entry card  */}}
+            {{ range .entry }}
+                {{if isset . "width"}}
+                    <div class="project_entry outline_shadow" style="grid-column-end:span 2">
+                        <div class="headshot_img", style="background: url({{ .image | absURL }})"></div>
+                        <h4>{{ .title }} x2</h4>
+                    </div>
+                {{ else }}
+                    <div class="project_entry outline_shadow">
+                        <div class="headshot_img", style="background: url({{ .image | absURL }})"></div>
+                        <h4>{{ .title }}</h4>
+                    </div>
+                {{ end }}
+            {{ end }}
+
+        </div>
+
     </section>
+    {{ end }}
     {{ end }}
 
     {{ partial "footer.html" . }}
