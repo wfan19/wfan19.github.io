@@ -3,15 +3,41 @@ theme = "hugo-starter-theme"
 
 [params.intro]
 header = "Hi, I'm Bill!"
-paragraph_1 = "I’m a graduating senior at Olin College of Engineering and robotics researcher. I am interested in how computational models and bio-inspiration can help us design robots that can effectively work alongside us. So far, my work has taken me across three different labs between OSU, Olin, and UMass."
+paragraph_1 = """
+I’m a graduating senior at Olin College of Engineering and robotics researcher. \
+I am interested in how computational models and bio-inspiration can help robots \
+complete everyday human tasks. So far, my work has taken me across \
+three different labs between OSU, Olin, and UMass."""
+
 paragraph_2 = "Outside of research, I’ve also worked on SLAM and controls on autonomous systems, including an internship at Dusty Robotics."
 img_faceshot = "images/headshot.jpg"
 
-[params.section_1]
+[params.research_section]
 show = true
 header = "Research"
 
-[params.section_2]
+[[params.research_section.entry]]
+image = "images/helical_60psi 1.png"
+title = "Linear Kinematics for General Constant Curvature and Torsion Manipulators"
+authors = "*Bill Fan**, Farhan Rozaidi, Capprin Bass, Gina Olson, Melinda Malley, Ross L Hatton."
+blurb = """
+We present a novel model that unifies the kinematics of soft continuum robots of constant \
+bending and twistin Our model generalizes across manipulators of different sizes and \
+designs without the need for parameter re-fitting. We validate our model on six different \
+soft robot designs. Presented a lightning talk at Robosoft 2023, and won 3rd place best \
+ poster at the reduced-order modeling workshop. [paper] [poster]"""
+
+[[params.research_section.entry]]
+image="images/underwater slam.png"
+title = "Simultaneous Localization and Mapping for a Robotic Fish"
+authors = "*Bill Fan*, Declan Freeman-Gleason, David Barrett"
+blurb = """
+Experimented with using an Unscented Kalman Filter and Apriltags to perform SLAM for a robotic fish. \
+Compared different algorithm choices and manifold representations. \
+Designed experiment setup and collected datasets for validating the UKF. \
+Submitted an abstract to IEEE OCEANS 2021. [abstract]"""
+
+[params.projects_section]
 show = true
 header = "Projects"
 

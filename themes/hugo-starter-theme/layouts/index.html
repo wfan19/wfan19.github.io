@@ -1,32 +1,112 @@
-<style>
-    .headshot_img{
-        width: 200px;
-        height: 200px;
-    }
-</style>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:800|Lato:regular,bold' rel='stylesheet'>
+    <style>
+        h1{
+            font-family: Montserrat;
+            font-weight: "800";
+            font-size:40
+        }
+
+        h3{
+            font-family:Lato;
+            font-weight:"bold";
+            font-size:20
+        }
+
+        p{
+            font-family: Lato;
+            font-weight: "regular";
+            font-size: 20
+        }
+
+        .stylized_img{
+            border: 3px solid #2b2b2b;
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+            border-bottom-left-radius: 7px;
+            border-bottom-right-radius: 7px;
+            box-shadow: 7px 7px 0px #2b2b2b;
+        }
+
+        .headshot_img{
+            /* TODO: Fix dimensions */
+            width: 200px;
+            height: 200px;
+        }
+
+        .header_container{
+            display: flex;
+            flex-direction: row
+        }
+
+        .header_button{
+            /* TODO: Fix these! */
+            height: 100px;
+            width: 50px;
+        }
+
+        .reserach_container{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .research_item{
+            display: flex;
+            flex-direction: row;
+            column-gap: 20px;
+        }
+
+        .research_description{
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
 
 <main>
     <header class="header_section">
         <!-- {{ .Content }} -->
-        <div>
-            <h1>{{ .Site.Params.intro.header }}</h1>
-            <h3>{{ .Site.Params.intro.paragraph_1 }}</h3>
-            <h3>{{ .Site.Params.intro.paragraph_2 }}</h3>
+        <div class="header_container">
+            <div class="header_left_col">
+                <h1>{{ .Site.Params.intro.header }}</h1>
+                <h3>{{ .Site.Params.intro.paragraph_1 }}</h3>
+                <h3>{{ .Site.Params.intro.paragraph_2 }}</h3>
+
+                <div class="header_buttons_container">
+                    <button>Research</button>
+                    <button>Projects</button>
+                    <button>CV</button>
+                </div>
+            </div>
+
+            {{  with .Site.Params.intro.img_faceshot  }}
+                <div class="headshot_img stylized_img", style="background: url({{ . | absURL }})"/>
+            {{  end  }}
         </div>
-        {{  with .Site.Params.intro.img_faceshot  }}
-            <div class="headshot_img", style="background: url({{ . | absURL }})"/>
-        {{  end  }}
     </header>
 
-    {{ if .Site.Params.section_1.show }}
+    {{ if .Site.Params.research_section.show }}
     <section class="section">
-        <h1>{{ .Site.Params.section_1.header }}</h1>
+        <h1>{{ .Site.Params.research_section.header }}</h1>
+
+        <div class="research_container">
+            {{ range .Site.Params.research_section.entry }}
+                <div class="research_item">
+                    <div class="stylized_img headshot_img", style="background: url({{ .image | absURL }})"></div>
+                    <div class="research_description">
+                        <h3>{{ .title }}</h3>
+                        <h6>{{ .authors }}</h6>
+                        <p>{{ .blurb }}</p>
+                    </div>
+                </div>
+            {{end}}
+        </div>
     </section>
     {{ end }}
 
-    {{ if .Site.Params.section_2.show }}
+    {{ if .Site.Params.projects_section.show }}
     <section class="section">
-        <h1>{{ .Site.Params.section_2.header }}</h1>
+        <h1>{{ .Site.Params.projects_section.header }}</h1>
     </section>
     {{ end }}
 
