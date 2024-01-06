@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:800,600|Lato:regular,bold'>
-    <link rel="icon" type="image/x-icon" href='{{ "images/favicon.ico" | absURL }}'>
+    <link rel="icon" type="image/x-icon" href='{{ "images/favicon.ico?" | absURL }}'>
 
 	{{ with .OutputFormats.Get "rss" -}}
 		{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
