@@ -19,7 +19,7 @@ header = "Research"
 [[params.research_section.entry]]
 image = "images/helical_60psi 1.png"
 title = "Linear Kinematics for General Constant Curvature and Torsion Manipulators"
-authors = "*Bill Fan**, Farhan Rozaidi, Capprin Bass, Gina Olson, Melinda Malley, Ross L Hatton."
+authors = "**Bill Fan***, Farhan Rozaidi, Capprin Bass, Gina Olson, Melinda Malley, Ross L Hatton."
 blurb = """
 We present a novel model that unifies the kinematics of soft continuum robots of constant \
 bending and twistin Our model generalizes across manipulators of different sizes and \
@@ -30,7 +30,7 @@ soft robot designs. Presented a lightning talk at Robosoft 2023, and won 3rd pla
 [[params.research_section.entry]]
 image="images/underwater slam.png"
 title = "Simultaneous Localization and Mapping for a Robotic Fish"
-authors = "*Bill Fan*, Declan Freeman-Gleason, David Barrett"
+authors = "**Bill Fan**, Declan Freeman-Gleason, David Barrett"
 blurb = """
 Experimented with using an Unscented Kalman Filter and Apriltags to perform SLAM for a robotic fish. \
 Compared different algorithm choices and manifold representations. \
@@ -45,6 +45,7 @@ header = "Projects"
 image="images/twist lab group.JPG"
 title="Twist Lab: a student-run soft robotics research group"
 width=2
+img_posn="50% 40%"
 
 [[params.projects_section.entry]]
 image="images/neato star.jpg"
@@ -60,11 +61,12 @@ title="Cosserat elastic rod model simulation"
 
 [[params.projects_section.entry]]
 image="images/colloidal glass sim.png"
-title="Simulating and rendering colloidal glass transitions"
+title="Simulating and rendering mass particle collisions"
 
 [[params.projects_section.entry]]
 image="images/ProbMod Final square.png"
 title="Inferring and simulating stochastic processes"
+img_posn="7%"
 
 [[params.projects_section.entry]]
 image="images/maglev.png"
