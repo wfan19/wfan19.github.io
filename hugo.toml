@@ -1,16 +1,22 @@
 baseURL = "https://bill-fan.com"
-theme = "hugo-starter-theme"
+theme = "vitmat"
 
 [params.intro]
 header = "Hi, I'm Bill!"
-paragraph_1 = """
-I’m a graduating senior at Olin College of Engineering and robotics researcher. \
-I am interested in how computational models and bio-inspiration can help robots \
-complete everyday human tasks. So far, my work has taken me across \
-three different labs between OSU, Olin, and UMass."""
-
-paragraph_2 = "Outside of research, I’ve also worked on SLAM and controls on autonomous systems, including an internship at Dusty Robotics."
 img_faceshot = "images/headshot.jpg"
+
+[[params.intro.paragraph]]
+text = """
+I’m a graduating senior at Olin College of Engineering studying robotics engineering \
+ whose robotics research has taken me across OSU, Olin, and UMass."""
+
+[[params.intro.paragraph]]
+text="""
+I am interested in how compliance can help robots better perform human tasks, and how computational models and bio-inspiration can help us design these compliant manipulators  
+"""
+
+[[params.intro.paragraph]]
+text = "Outside of research, I’ve also worked on SLAM and controls on autonomous systems, including an internship at Dusty Robotics."
 
 [params.research_section]
 show = true
@@ -71,3 +77,17 @@ img_posn="7%"
 [[params.projects_section.entry]]
 image="images/maglev.png"
 title="Electromagnetic levitation control"
+
+[[params.projects_section.entry]]
+image="images/ferrofluid in action.png"
+title="Magnet controlled ferrofluid display"
+
+[[params.projects_section.entry]]
+image="images/modsim control.png"
+title="Optimal control of a bouncing ball"
+img_posn="10%"
+
+[[params.projects_section.entry]]
+image="images/foiling nacra.png"
+title="Autonomous control of a hydrofoiling Nacra 17 watercraf"
+width=2

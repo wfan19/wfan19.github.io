@@ -210,9 +210,10 @@
         <div class="center">
             <div class="header_container">
                 <div class="header_left_col">
-                    <h1>{{ .Site.Params.intro.header }}</h1>
-                    <h3>{{ .Site.Params.intro.paragraph_1 }}</h3>
-                    <h3>{{ .Site.Params.intro.paragraph_2 }}</h3>
+                    <h1 class="small_bottom_margin">{{ .Site.Params.intro.header }}</h1>
+                    {{ range .Site.Params.intro.paragraph }}
+                        <h3>{{ .text }}</h3>
+                    {{end}}
 
                     <div class="header_buttons_container">
                         <button class="header_button" style="background-color:var(--medium-light-yellow)">Research</button>
