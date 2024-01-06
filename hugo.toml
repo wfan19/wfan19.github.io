@@ -1,5 +1,10 @@
-baseURL = "https://bill-fan.com"
+baseURL = "https://wfan19.github.io"
 theme = "vitmat"
+title="Hi, I'm Bill!"
+author="Bill Fan"
+
+[params]
+favicon="favicon.ico"
 
 ## Intro section / header configuration
 [params.intro]
