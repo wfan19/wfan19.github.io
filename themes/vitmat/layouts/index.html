@@ -25,11 +25,25 @@
             --faint-green: #E2F7EE;
         }
 
+        a:link{
+            color:var(--blue)
+        }
 
-        html, body {
+        a:visited{
+            color: var(--dark-blue)
+        }
+
+
+        html{
             margin: 0px;
-            padding: 0;
+            padding: 0px;
+            scroll-behavior: smooth;
         }  
+
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
 
         .no_margins{
             margin-top: 0px;
@@ -53,6 +67,7 @@
         }
 
         h3{
+            color: var(--black);
             font-family:Montserrat;
             font-weight: 600;
             font-size:18
@@ -60,6 +75,7 @@
 
         /*  Project card text  */
         h4{
+            color: var(--black);
             font-family: Lato;
             font-weight: "bold";
             font-size: 13;
@@ -70,6 +86,7 @@
         }
 
         h6 {
+            color: var(--black);
             font-family: Lato;
             font-weight: normal;
             font-size: 12
@@ -78,7 +95,8 @@
         p{
             font-family: Lato;
             font-weight: normal;
-            font-size: 15
+            font-size: 15;
+            color: var(--black);
         }
 
         .outline_shadow{
@@ -102,7 +120,7 @@
         }
 
         .project_img{
-            height: 150px;
+            height: 150px;            color: var(--black);
             width: 100%;
             background-size:cover !important;
         }
@@ -169,7 +187,18 @@
             border-radius: 5px;
             font-family: lato;
             font-weight: bold;
+            color: var(--black);
             font-size:15;
+            text-align:center;
+            text-decoration: none;
+        }
+
+        .header_button:link{
+            color: var(--black);
+        }
+
+        .header_button:visited{
+            color: var(--black);
         }
 
         /* Research section styling  */
@@ -216,9 +245,29 @@
                     {{end}}
 
                     <div class="header_buttons_container">
-                        <button class="header_button" style="background-color:var(--medium-light-yellow)">Research</button>
-                        <button class="header_button" style="background-color: var(--medium-light-blue)">Projects</button>
-                        <button class="header_button" style="background-color: var(--medium-light-red)">CV</button>
+                        <a
+                            href="#research"
+                            class="header_button"
+                            style="background-color:var(--medium-light-yellow)"
+                        >
+                            Research
+                        </a>
+
+                        <a
+                            href="#projects"
+                            class="header_button"
+                            style="background-color:var(--medium-light-blue)"
+                        >
+                            Projects
+                        </a>
+
+                        <a
+                            href={{ "pdfs/Bill CV 9_17_2023.pdf" | absURL}}
+                            class="header_button"
+                            style="background-color:var(--medium-light-red)"
+                        >
+                            CV
+                        </a>
                     </div>
                 </div>
 
@@ -231,7 +280,7 @@
 
     {{ if .Site.Params.research_section.show }}
     {{ with .Site.Params.research_section }}
-    <section class="section" style="background: var(--faint-yellow)">
+    <section id="research" class="section" style="background: var(--faint-yellow)">
         <div class="center">
             <h1 class="small_bottom_margin">{{ .header }}</h1>
 
@@ -255,7 +304,7 @@
 
     {{ if .Site.Params.projects_section.show }}
     {{ with .Site.Params.projects_section}}
-    <section class="section" style="background: var(--faint-blue)">
+    <section id="projects" class="section" style="background: var(--faint-blue)">
         <div class = "center">
             <h1 class="small_bottom_margin">{{ .header }}</h1>
 

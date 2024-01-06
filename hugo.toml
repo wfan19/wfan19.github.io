@@ -1,10 +1,12 @@
 baseURL = "https://bill-fan.com"
 theme = "vitmat"
 
+## Intro section / header configuration
 [params.intro]
 header = "Hi, I'm Bill!"
 img_faceshot = "images/headshot.jpg"
 
+# Intro section paragraphs - each paragraph is a list entry
 [[params.intro.paragraph]]
 text = """
 I’m a graduating senior at Olin College of Engineering studying robotics engineering \
@@ -12,16 +14,19 @@ I’m a graduating senior at Olin College of Engineering studying robotics engin
 
 [[params.intro.paragraph]]
 text="""
-I am interested in how compliance can help robots better perform human tasks, and how computational models and bio-inspiration can help us design these compliant manipulators  
+I am interested in how compliant manipulators can help robots better learn to perform human tasks, and how \
+computational models and bio-inspiration can help us design them.  
 """
 
 [[params.intro.paragraph]]
 text = "Outside of research, I’ve also worked on SLAM and controls on autonomous systems, including an internship at Dusty Robotics."
 
+## Research section configuration
 [params.research_section]
 show = true
 header = "Research"
 
+# Each research experience is its own entry
 [[params.research_section.entry]]
 image = "images/helical_60psi 1.png"
 title = "Linear Kinematics for General Constant Curvature and Torsion Manipulators"
@@ -31,7 +36,7 @@ We present a novel model that unifies the kinematics of soft continuum robots of
 bending and twistin Our model generalizes across manipulators of different sizes and \
 designs without the need for parameter re-fitting. We validate our model on six different \
 soft robot designs. Presented a lightning talk at Robosoft 2023, and won 3rd place best \
- poster at the reduced-order modeling workshop. [paper] [poster]"""
+ poster at the reduced-order modeling workshop. [[paper]](https://arxiv.org/abs/2302.11661) [[poster]](pdfs/Robosoft_Poster.pdf)"""
 
 [[params.research_section.entry]]
 image="images/underwater slam.png"
@@ -41,12 +46,16 @@ blurb = """
 Experimented with using an Unscented Kalman Filter and Apriltags to perform SLAM for a robotic fish. \
 Compared different algorithm choices and manifold representations. \
 Designed experiment setup and collected datasets for validating the UKF. \
-Submitted an abstract to IEEE OCEANS 2021. [abstract]"""
+Submitted an abstract to IEEE OCEANS 2021. [[abstract]](pdfs/IEEE_Oceans_SD_Abstract.pdf)"""
 
+
+## Projects section configuration
 [params.projects_section]
 show = true
 header = "Projects"
 
+# Each project card is its own entry
+# TODO: Links from the project card to detailed pages
 [[params.projects_section.entry]]
 image="images/twist lab group.JPG"
 title="Twist Lab: a student-run soft robotics research group"
