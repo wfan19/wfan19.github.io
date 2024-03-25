@@ -7,10 +7,18 @@
                 <div class="header_left_col">
                     <h1 class="small_bottom_margin">{{ .Site.Params.intro.header }}</h1>
                     {{ range .Site.Params.intro.paragraph }}
-                        <h3>{{ .text }}</h3>
+                        <p>{{ .text }}</p>
                     {{end}}
 
                     <div class="header_buttons_container">
+                        <a
+                            href={{ "pdfs/Bill CV 9_17_2023.pdf" | absURL}}
+                            class="header_button"
+                            style="background-color:var(--medium-light-red)"
+                        >
+                            CV
+                        </a>
+
                         <a
                             href="#research"
                             class="header_button"
@@ -25,14 +33,6 @@
                             style="background-color:var(--medium-light-blue)"
                         >
                             Projects
-                        </a>
-
-                        <a
-                            href={{ "pdfs/Bill CV 9_17_2023.pdf" | absURL}}
-                            class="header_button"
-                            style="background-color:var(--medium-light-red)"
-                        >
-                            CV
                         </a>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     <div class="research_entry">
                         <div class="outline_shadow research_img", style="background: url({{ .image | absURL }}) center"></div>
                         <div class="research_description">
-                            <h3 class="no_margins">{{ .title }}</h3>
+                            <h3 class="small_bottom_margin">{{ .title }}</h3>
                             <h6 class="small_bottom_margin">{{ .authors | markdownify}}</h6>
                             <p class="small_bottom_margin">{{ .blurb | markdownify}}</p>
                         </div>

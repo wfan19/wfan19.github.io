@@ -8,14 +8,14 @@ favicon="favicon.ico"
 
 ## Intro section / header configuration
 [params.intro]
-header = "Hi, I'm Bill!"
+header = "Hi! I'm Bill."
 img_faceshot = "images/headshot.jpg"
 
 # Intro section paragraphs - each paragraph is a list entry
 [[params.intro.paragraph]]
 text = """
-I’m a graduating senior at Olin College of Engineering studying robotics engineering \
- whose robotics research has taken me across OSU, Olin, and UMass."""
+I’m a graduating senior at Olin College of Engineering studying robotics engineering. \
+ My robotics research has taken me to Oregon State, Olin, and UMass."""
 
 [[params.intro.paragraph]]
 text="""
@@ -29,7 +29,7 @@ text = "Outside of research, I’ve also worked on SLAM and controls on autonomo
 ## Research section configuration
 [params.research_section]
 show = true
-header = "Research"
+header = "Research."
 
 # Each research experience is its own entry
 [[params.research_section.entry]]
@@ -57,7 +57,7 @@ Submitted an abstract to IEEE OCEANS 2021. [[abstract]](pdfs/IEEE_Oceans_SD_Abst
 ## Projects section configuration
 [params.projects_section]
 show = true
-header = "Projects"
+header = "Projects."
 
 # Each project card is its own entry
 # TODO: Links from the project card to detailed pages
