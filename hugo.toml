@@ -29,29 +29,39 @@ text = "Outside of research, I’ve also worked on SLAM and controls on autonomo
 ## Research section configuration
 [params.research_section]
 show = true
-header = "Research."
+header = "Publications."
 
 # Each research experience is its own entry
 [[params.research_section.entry]]
+image = "images/modsim_cae.png"
+title = """Beyond "How's it going?": A Collaborative Autoethnographic Study by Early Instructors in a First-Year Engineering Studio Course"""
+authors = "Esme E Abbot, Berwin Lan, Luke Raus, **Bill Fan**, Zachary del Rosario"
+blurb = """
+Studio pedagogies are increasingly popular, but teaching in one can be difficult, especially for new instructors. We studied how new instructors learn to teach \
+in a studio environment through a collective autoethnographic study of four undergraduate course assistants. We identified challenges new instructors \
+faced and strategies they devised to address them. *Olin* | *ASEE 2024.* [[paper]](pdfs/ASEE_2024_ModSim_CAE.pdf) 
+"""
+
+[[params.research_section.entry]]
 image = "images/helical_60psi 1.png"
 title = "Linear Kinematics for General Constant Curvature and Torsion Manipulators"
-authors = "**Bill Fan***, Farhan Rozaidi, Capprin Bass, Gina Olson, Melinda Malley, Ross L Hatton."
+authors = "**Bill Fan***, Farhan Rozaidi, Capprin Bass, Gina Olson, Melinda Malley, Ross L Hatton | **Robosoft 2023**"
 blurb = """
 We present a novel model that unifies the kinematics of soft continuum robots of constant \
 bending and twistin Our model generalizes across manipulators of different sizes and \
 designs without the need for parameter re-fitting. We validate our model on six different \
-soft robot designs. Presented a lightning talk at Robosoft 2023, and won 3rd place best \
- poster at the reduced-order modeling workshop. [[paper]](https://arxiv.org/abs/2302.11661) [[poster]](pdfs/Robosoft_Poster.pdf)"""
+soft robot designs. Lightning talk at Robosoft 2023, and 3rd place best workshop poster. *Olin, OSU, UMass* | \
+ *Robosoft 2023* [[paper]](https://arxiv.org/abs/2302.11661) [[poster]](pdfs/Robosoft_Poster.pdf)"""
 
-[[params.research_section.entry]]
-image="images/underwater slam.png"
-title = "Simultaneous Localization and Mapping for a Robotic Fish"
-authors = "**Bill Fan**, Declan Freeman-Gleason, David Barrett"
-blurb = """
-Experimented with using an Unscented Kalman Filter and Apriltags to perform SLAM for a robotic fish. \
-Compared different algorithm choices and manifold representations. \
-Designed experiment setup and collected datasets for validating the UKF. \
-Submitted an abstract to IEEE OCEANS 2021. [[abstract]](pdfs/IEEE_Oceans_SD_Abstract.pdf)"""
+# [[params.research_section.entry]]
+# image="images/underwater slam.png"
+# title = "Simultaneous Localization and Mapping for a Robotic Fish"
+# authors = "**Bill Fan**, Declan Freeman-Gleason, David Barrett"
+# blurb = """
+# Experimented with using an Unscented Kalman Filter and Apriltags to perform SLAM for a robotic fish. \
+# Compared different algorithm choices and manifold representations. \
+# Designed experiment setup and collected datasets for validating the UKF. \
+# Submitted an abstract to IEEE OCEANS 2021. [[abstract]](pdfs/IEEE_Oceans_SD_Abstract.pdf)"""
 
 
 ## Projects section configuration
