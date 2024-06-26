@@ -7,7 +7,7 @@
                 <div class="header_left_col">
                     <h1 class="small_bottom_margin">{{ .Site.Params.intro.header }}</h1>
                     {{ range .Site.Params.intro.paragraph }}
-                        <p>{{ .text }}</p>
+                        <p>{{ .text | markdownify}}</p>
                     {{end}}
 
                     <div class="header_buttons_container">
@@ -17,22 +17,6 @@
                             style="background-color:var(--medium-light-red)"
                         >
                             CV
-                        </a>
-
-                        <a
-                            href="#research"
-                            class="header_button"
-                            style="background-color:var(--medium-light-yellow)"
-                        >
-                            Research
-                        </a>
-
-                        <a
-                            href="#projects"
-                            class="header_button"
-                            style="background-color:var(--medium-light-blue)"
-                        >
-                            Projects
                         </a>
                     </div>
                 </div>

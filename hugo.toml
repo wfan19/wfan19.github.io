@@ -24,7 +24,7 @@ computational models and bio-inspiration can help us design them.
 """
 
 [[params.intro.paragraph]]
-text = "Outside of research, I’ve also worked on SLAM and controls on autonomous systems, including an internship at Dusty Robotics."
+text = """Outside of research, I’ve also worked on SLAM and controls on autonomous systems, including an internship at Dusty Robotics."""
 
 ## Research section configuration
 [params.research_section]

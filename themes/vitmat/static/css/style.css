@@ -173,6 +173,7 @@ p{
   /* TODO: Fix these! */
   height: auto;
   width: auto;
+  max-width: 33%;
   padding-top: 9px;
   padding-bottom: 9px;
   padding-left: 15px;
