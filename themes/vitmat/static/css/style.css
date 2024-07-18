@@ -1,25 +1,26 @@
 :root{
+  --white: #FFFFFF;
   --black: #000000;
   --dark-red: #A71B5F;
-  --red: #E664a4;
+  --red: #D2077A;
   --medium-light-red: #f38ab3;
   --light-red: #FFB2D0;
   --faint-red: #FFEBF3;
   --dark-blue: #4B6BBF;
-  --blue: #87A7FA;
+  --blue: #648FFF;
   --medium-light-blue: #8BBAFF;
-  --light-blue: #A2C7FF;
+  --light-blue: #B6D3FF;
   --faint-blue: #E3EEFF;
   --dark-yellow: #BF8400;
-  --yellow: #F8CA61;
+  --yellow: #FFB000;
   --medium-light-yellow: #FFD780;
   --light-yellow: #FFE19F;
   --faint-yellow: #FFF7E7;
   --dark-green: #128354;
-  --green: #82CDAE;
-  --medium-light-green: #B4E4CF;
-  --light-green: #CBEBDD;
-  --faint-green: #E9F9F2;
+  --green: #2DB67D;
+  --medium-light-green: #C9E4b4;
+  --light-green: #DFF4D5;
+  --faint-green: #F6FFF2;
 }
 
 a:link{
@@ -65,9 +66,9 @@ h1{
 
 h3{
   color: var(--black);
-  font-family:Montserrat;
-  font-weight: 600;
-  font-size:18
+  font-family: Lato;
+  font-weight: normal;
+  font-size: 15;
 }
 
 /*  Project card text  */
@@ -82,6 +83,14 @@ h4{
   margin-right: 5px;
 }
 
+h5 {
+  color: var(--black);
+  font-family: Lato;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 12
+}
+
 h6 {
   color: var(--black);
   font-family: Lato;
@@ -92,61 +101,62 @@ h6 {
 p{
   font-family: Lato;
   font-weight: normal;
-  font-size: 1em;
+  font-size: 21px;
   color: var(--black);
 }
 
 .outline_shadow{
-  border: 3px solid var(--black);
+  border: 2px solid var(--black);
   border-radius: 7px;
   box-shadow: 7px 7px 0px var(--black);
 }
 
+
 /*  Image styling  */
 .headshot_img{
-  flex-grow: 1;
-  min-width: 150px;
-  height: 330px;
+  flex-basis: 288px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 300px;
   background-size:cover !important;
 }
 
 .research_img{
-  height: 190px;
-  flex-grow: 1;
+  height: 330px;
+  width: 200px;
   background-size: cover !important;
 }
 
 .project_img{
-  height: 150px;            color: var(--black);
+  height: 150px;
   width: 100%;
   background-size:cover !important;
 }
 
 /*  Section styling  */
 .header_section{
-  padding-top: 60px;
-  padding-bottom:40px;
+  padding-top: 100px;
+  padding-bottom: 60px;
   border: 8px solid var(--black);
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 900px;
-  min-width: 900px;
+  width: 1050px;
 }
 
 .section{
-  padding-top: 20px;
-  padding-bottom: 40px;
+  padding-top: 40px;
+  padding-bottom: 60px;
   border-bottom: 8px solid var(--black);
   border-left: 8px solid var(--black);
   border-right: 8px solid var(--black);
   margin-left: auto;
   margin-right: auto;
-  max-width: 900px;
-  min-width: 900px;
+  width: 1050px;
 }
 
 .center{
-  max-width: 700px;
+  max-width: 770px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -154,19 +164,52 @@ p{
 /*  Header section styling  */
 .header_container{
   display: flex;
-  flex-direction: row;
-  column-gap: 50px
+  flex-direction: column;
+  row-gap: 12px;
 }
 
 .header_left_col{
   width: 55%
 }
 
+.header_bar{
+  display: flex;
+  flex-direction: row;
+  column-gap: auto;
+}
+
+.header_menu{
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+
+p#header_menu_text{
+  font-family: Montserrat;
+  font-weight: 200;
+  font-size: 15;
+  color: var(--black)
+}
+
+.header_title{
+  display:flex;
+  flex-direction: column;
+  row-gap: 4px;
+  flex-grow: 1
+}
+
+.header_body{
+  display: flex;
+  flex-direction: row;
+  column-gap: 70px;
+  align-items: center;
+}
+
 .header_buttons_container{
   display: flex;
   flex-direction: row;
   width:100%;
-  column-gap: 20px;
+  column-gap: 40px;
 }
 
 .header_button{
@@ -174,17 +217,20 @@ p{
   height: auto;
   width: auto;
   max-width: 33%;
-  padding-top: 9px;
-  padding-bottom: 9px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 
   flex-basis: auto;
-  flex-grow: 1;
-  flex-shrink: 1;
+  flex-grow: 0;
+  flex-shrink: 0;
 
-  border: 3px solid var(--black);
-  border-radius: 5px;
+  background: var(--white);
+  box-shadow: 4px 4px 0px var(--black);
+  border: 2px solid var(--black);
+  border-radius: 15px;
+
   font-family: lato;
   font-weight: bold;
   color: var(--black);

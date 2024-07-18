@@ -9,22 +9,19 @@ favicon="favicon.ico"
 ## Intro section / header configuration
 [params.intro]
 header = "Hi! I'm Bill."
-img_faceshot = "images/headshot.jpg"
+img_faceshot = "images/Bill_headshot_2024.png"
+email = "billfan.2001@gmail.com"
 
 # Intro section paragraphs - each paragraph is a list entry
 [[params.intro.paragraph]]
-text = """
-I’m a graduating senior at Olin College of Engineering studying robotics engineering. \
- My robotics research has taken me to Oregon State, Olin, and UMass."""
+text = """I’m a graduating senior at Olin College of Engineering and robotics researcher. \
+My research studies how we can use computational models and bio-inspiration to \
+design robots to effectively work alongside us. \
+So far, I have worked with three different labs between OSU, Olin, and UMass."""
 
 [[params.intro.paragraph]]
-text="""
-I am interested in how compliant manipulators can help robots better learn to perform human tasks, and how \
-computational models and bio-inspiration can help us design them.  
-"""
-
-[[params.intro.paragraph]]
-text = """Outside of research, I’ve also worked on SLAM and controls on autonomous systems, including an internship at Dusty Robotics."""
+text="""Outside of research, I’ve also worked on SLAM and controls on autonomous systems. \
+Currently, I am building novel genome sequencing technologies at XGenomes."""
 
 ## Research section configuration
 [params.research_section]
@@ -37,20 +34,19 @@ image = "images/modsim_cae.png"
 title = """Beyond "How's it going?": A Collaborative Autoethnographic Study by Early Instructors in a First-Year Engineering Studio Course"""
 authors = "Esme E Abbot, Berwin Lan, Luke Raus, **Bill Fan**, Zachary del Rosario"
 blurb = """
-Studio pedagogies are increasingly popular, but teaching in one can be difficult, especially for new instructors. We studied how new instructors learn to teach \
-in a studio environment through a collective autoethnographic study of four undergraduate course assistants. We identified challenges new instructors \
+Studio pedagogies are increasingly popular, but teaching in one is difficult. We studied how new instructors learn to teach \
+in a studio environment through a collective autoethnographic study of four undergraduate course assistants (us!). We identified challenges new instructors \
 faced and strategies they devised to address them. *Olin* | *ASEE 2024.* [[paper]](pdfs/ASEE_2024_ModSim_CAE.pdf) 
 """
 
 [[params.research_section.entry]]
 image = "images/helical_60psi 1.png"
 title = "Linear Kinematics for General Constant Curvature and Torsion Manipulators"
-authors = "**Bill Fan***, Farhan Rozaidi, Capprin Bass, Gina Olson, Melinda Malley, Ross L Hatton | **Robosoft 2023**"
+authors = "**Bill Fan***, Farhan Rozaidi, Capprin Bass, Gina Olson, Melinda Malley, Ross L Hatton"
 blurb = """
-We present a novel model that unifies the kinematics of soft continuum robots of constant \
-bending and twistin Our model generalizes across manipulators of different sizes and \
-designs without the need for parameter re-fitting. We validate our model on six different \
-soft robot designs. Lightning talk at Robosoft 2023, and 3rd place best workshop poster. *Olin, OSU, UMass* | \
+Helically-wound muscles greatly increase continuum arm workspaces by enabling twisting, but are more difficult to model. \ 
+We present a novel application of Lie theory to simplify the modeling of constant twist soft robots, and unify modeling across different designs. \
+Lightning talk at Robosoft 2023, and 3rd place best workshop poster. *Olin, OSU, UMass* | \
  *Robosoft 2023* [[paper]](https://arxiv.org/abs/2302.11661) [[poster]](pdfs/Robosoft_Poster.pdf)"""
 
 # [[params.research_section.entry]]

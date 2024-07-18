@@ -1,29 +1,36 @@
 {{ partial "head_meta.html"}}
+{{ partial "circle_arrow_icon.svg"}}
 
 <main>
     <header class="header_section" style="background: var(--faint-green)">
         <div class="center">
             <div class="header_container">
-                <div class="header_left_col">
-                    <h1 class="small_bottom_margin">{{ .Site.Params.intro.header }}</h1>
-                    {{ range .Site.Params.intro.paragraph }}
-                        <p>{{ .text | markdownify}}</p>
-                    {{end}}
 
-                    <div class="header_buttons_container">
-                        <a
-                            href={{ "pdfs/Bill CV 9_17_2023.pdf" | absURL}}
-                            class="header_button"
-                            style="background-color:var(--medium-light-red)"
-                        >
-                            CV
-                        </a>
+                <div class="header_bar">
+                    <div class="header_title">
+                        <h1 class="no_margins"> {{ .Site.Params.intro.header}}</h1>
+                        <h5 class="no_margins"> {{.Site.Params.intro.email }}</h6>
+                    </div>
+
+                    <div class="header_menu">
+                        <p id="header_menu_text">Home</p>
+                        <p>Projects</p>
+                        <p>CV</p>
                     </div>
                 </div>
 
-                {{  with .Site.Params.intro.img_faceshot  }}
-                    <div class="headshot_img outline_shadow", style="background: url({{ . | absURL }}) center"/>
-                {{  end  }}
+                <div class="header_body">
+                    <div class="header_body_text">
+                        {{ range .Site.Params.intro.paragraph }}
+                            <p>{{ .text}}</p>
+                        {{end}}
+                    </div>
+
+                    {{  with .Site.Params.intro.img_faceshot  }}
+                        <div class="headshot_img outline_shadow", style="background: url({{ . | absURL }}) center"> </div>
+                    {{  end  }}
+                </div>
+
             </div>
         </div>
     </header>
@@ -40,9 +47,9 @@
                     <div class="research_entry">
                         <div class="outline_shadow research_img", style="background: url({{ .image | absURL }}) center"></div>
                         <div class="research_description">
-                            <h3 class="small_bottom_margin">{{ .title }}</h3>
-                            <h6 class="small_bottom_margin">{{ .authors | markdownify}}</h6>
-                            <p class="small_bottom_margin">{{ .blurb | markdownify}}</p>
+                            <p style="font-weight: 600;" class="small_bottom_margin">{{ .title }}</h2>
+                            <h6 class="small_bottom_margin">{{ .authors | markdownify}}</h5>
+                            <h3 class="small_bottom_margin">{{ .blurb | markdownify}}</p>
                         </div>
                     </div>
                 {{end}}
