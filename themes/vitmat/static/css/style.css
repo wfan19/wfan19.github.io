@@ -240,10 +240,10 @@ p{
 .research_entry:hover{
   box-shadow: 7px 7px 0px var(--yellow);
 }
-
+/* 
 .research_entry:active{
   box-shadow: 7px 7px 0px var(--dark-yellow);
-}
+} */
 
 .card_buttons{
   display: flex;
@@ -283,9 +283,9 @@ p{
   box-shadow: 7px 7px 0px var(--blue);
 }
 
-.project_entry:active{
+/* .project_entry:active{
   box-shadow: 7px 7px 0px var(--dark-blue);
-}
+} */
 
 /* ========================================================================================= */
 /*                          ICONS & BUTTONS                                                  */
