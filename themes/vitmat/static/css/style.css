@@ -25,6 +25,11 @@
 
 a{
   cursor: pointer;
+  text-decoration: none;
+}
+
+a:visited{
+  color: var(--black)
 }
 
 html{
@@ -165,10 +170,10 @@ p{
   column-gap: 20px;
 }
 
-p#header_menu_text{
+.header_menu_text{
   font-family: Montserrat;
-  font-weight: 200;
-  font-size: 15;
+  font-weight: 400;
+  font-size: 16px;
   color: var(--black)
 }
 
@@ -216,7 +221,7 @@ p#header_menu_text{
   border-right: 3px solid var(--black);
 }
 
-.research_entry{
+.horizontal_card{
   display: flex;
   flex-direction: row;
   column-gap: 30px;
@@ -240,14 +245,14 @@ p#header_menu_text{
   box-shadow: 7px 7px 0px var(--dark-yellow);
 }
 
-.research_buttons{
+.card_buttons{
   display: flex;
   flex-direction: row;
   column-gap: 50px;
   margin-left: auto;
 }
 
-.research_description{
+.card_description{
   display: flex;
   flex-direction: column;
   row-gap: 16px;
@@ -257,20 +262,29 @@ p#header_menu_text{
 /*  Projects section styling   */
 /* =========================== */
 .project_container{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
 }
 
 .project_img{
-  height: 150px;
-  width: 100%;
-  background-size:cover !important;
+  height: 200px;
+  flex-basis: 220px;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+
+  border-right: 3px solid var(--black);
 }
 
-.project_entry{
-  display:flex;
-  flex-direction:column
+.project_entry:hover{
+  box-shadow: 7px 7px 0px var(--blue);
+}
+
+.project_entry:active{
+  box-shadow: 7px 7px 0px var(--dark-blue);
 }
 
 /* ========================================================================================= */
@@ -325,6 +339,10 @@ p#header_menu_text{
   fill: var(--medium-light-yellow)
 }
 
+.blue_arrow_icon{
+  fill: var(--medium-light-blue)
+}
+
 /* Buttons for the intro section */
 .header_button:hover{
   background: var(--light-green)
@@ -343,6 +361,7 @@ p#header_menu_text{
 }
 
 /* Text buttons (for the research and project section for now */
+/* Yellow text button and states */
 .yellow_text_button{
   height: auto;
   width: auto;
@@ -382,4 +401,45 @@ p#header_menu_text{
 
 .yellow_text_button:active .yellow_arrow_icon{
   fill: var(--dark-yellow)
+}
+
+.blue_text_button{
+  height: auto;
+  width: auto;
+
+  background: white;
+  border: 0px;
+
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 8px;
+
+  font-family: lato;
+  font-weight: bold;
+  color: var(--black);
+  font-size:15px;
+  text-align:center;
+  text-decoration: none;
+  user-select: none;
+}
+
+.blue_text_button:hover{
+  color: var(--blue);
+}
+
+.blue_text_button:active{
+  color: var(--dark-blue)
+}
+
+.blue_text_button:hover .blue_arrow_icon{
+  fill: var(--blue)
+}
+
+.blue_text_button:active .blue_arrow_icon{
+  fill: var(--dark-blue)
 }

@@ -70,46 +70,68 @@ header = "Projects."
 # Each project card is its own entry
 # TODO: Links from the project card to detailed pages
 [[params.projects_section.entry]]
-image="images/twist lab group.JPG"
-title="Twist Lab: a student-run soft robotics research group"
-width=2
-img_posn="50% 40%"
+image = "images/twist lab group.JPG"
+title="Co-founding a soft-robotics research group"
+img_posn = "50% 40%"
+blurb = """In my 3rd year I co-founded Twist Lab - a soft robotics research group with 10 students. \
+As PM I was responsible for raising over $7,500 in lab funding from grants, supported projects in the \
+design, control, and simulation of soft robotics, and helped students apply to fellowships. """
 
 [[params.projects_section.entry]]
-image="images/neato star.jpg"
-title="Art2D2: automatic robotic drawing!"
+image = "images/500_balls_300x300.gif"
+title="GPU Rendered Colloidal Glass Simulation"
+blurb = """In my scientific computing class, I implemented a particle based model of the non-linear phase change of glass using Python. \
+To render the results, I implemented a modern OpenGL shader pipeline, complete with a phong lighting model and full camera movement in 3D space. """
 
 [[params.projects_section.entry]]
-image="images/gcs success.png"
-title="Path planning w/ mixed-integer optimization"
+image = "images/foiling nacra.png"
+title="Autonomous foiling of a Nacra 17"
+blurb="""During my gap year before college, my friend and I built an autonomously hydrofoiling boat capable \
+of multiple minutes of airtime. We added motorized hydrofoils with \
+ROS controls to an existing boat hull, developed a simulation, and used it to implement a cascaded PID controller. """
+img_posn = "70% 20%"
 
-[[params.projects_section.entry]]
-image="images/cosserat rod image.png"
-title="Cosserat elastic rod model simulation"
+# [[params.projects_section.entry]]
+# image="images/twist lab group.JPG"
+# title="Twist Lab: a student-run soft robotics research group"
+# width=2
+# img_posn="50% 40%"
 
-[[params.projects_section.entry]]
-image="images/colloidal glass sim.png"
-title="Simulating and rendering mass particle collisions"
+# [[params.projects_section.entry]]
+# image="images/neato star.jpg"
+# title="Art2D2: automatic robotic drawing!"
 
-[[params.projects_section.entry]]
-image="images/ProbMod Final square.png"
-title="Inferring and simulating stochastic processes"
-img_posn="7%"
+# [[params.projects_section.entry]]
+# image="images/gcs success.png"
+# title="Path planning w/ mixed-integer optimization"
 
-[[params.projects_section.entry]]
-image="images/maglev.png"
-title="Electromagnetic levitation control"
+# [[params.projects_section.entry]]
+# image="images/cosserat rod image.png"
+# title="Cosserat elastic rod model simulation"
 
-[[params.projects_section.entry]]
-image="images/ferrofluid in action.png"
-title="Magnet controlled ferrofluid display"
+# [[params.projects_section.entry]]
+# image="images/colloidal glass sim.png"
+# title="Simulating and rendering mass particle collisions"
 
-[[params.projects_section.entry]]
-image="images/modsim control.png"
-title="Optimal control of a bouncing ball"
-img_posn="10%"
+# [[params.projects_section.entry]]
+# image="images/ProbMod Final square.png"
+# title="Inferring and simulating stochastic processes"
+# img_posn="7%"
 
-[[params.projects_section.entry]]
-image="images/foiling nacra.png"
-title="Autonomous control of a hydrofoiling Nacra 17 watercraf"
-width=2
+# [[params.projects_section.entry]]
+# image="images/maglev.png"
+# title="Electromagnetic levitation control"
+
+# [[params.projects_section.entry]]
+# image="images/ferrofluid in action.png"
+# title="Magnet controlled ferrofluid display"
+
+# [[params.projects_section.entry]]
+# image="images/modsim control.png"
+# title="Optimal control of a bouncing ball"
+# img_posn="10%"
+
+# [[params.projects_section.entry]]
+# image="images/foiling nacra.png"
+# title="Autonomous control of a hydrofoiling Nacra 17 watercraf"
+# width=2
