@@ -1,5 +1,5 @@
 {{ partial "head_meta.html"}}
-{{ partial "circle_arrow_icon.svg"}}
+{{ partial "circle_arrow_icon.html"}}
 
 <main>
     <header class="header_section" style="background: var(--faint-green)">
@@ -31,6 +31,21 @@
                     {{  end  }}
                 </div>
 
+                <div class="header_buttons_container">
+                    <a class="header_button" href={{ "pdfs/Bill_Fan_CV_7_19_2024.pdf" | absURL }}>
+                        CV
+                        <svg class="green_arrow_icon" width="23" height="23">
+                            <use href="#circle_arrow"/>
+                        </svg>
+                    </a>
+
+                    <a class="header_button" href={{"https://scholar.google.com/citations?user=Ko8Ih50AAAAJ&hl=en"}}>
+                        Scholar
+                        <svg class="green_arrow_icon" width="23" height="23">
+                            <use href="#circle_arrow"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -39,17 +54,38 @@
     {{ with .Site.Params.research_section }}
     <section id="research" class="section" style="background: var(--faint-yellow)">
         <div class="center">
-            <h1 class="small_bottom_margin">{{ .header }}</h1>
+            <h1>{{ .header }}</h1>
 
             <div class="research_container">
                 {{/*  For each research entry, create a research-entry card  */}}
                 {{ range .entry }}
-                    <div class="research_entry">
-                        <div class="outline_shadow research_img", style="background: url({{ .image | absURL }}) center"></div>
+                    <div class="research_entry" href="{{ .paper }}">
+                        {{/*  Fetch optional image placement configs for each entry  */}}
+                        {{ $entry_posn := cond (isset . "img_posn") .img_posn "center"}} {{/* Default img posn = center */}}
+                        <div class="research_img", style="background: url({{ .image | absURL }}) {{ $entry_posn }}"></div>
+
                         <div class="research_description">
-                            <p style="font-weight: 600;" class="small_bottom_margin">{{ .title }}</h2>
-                            <h6 class="small_bottom_margin">{{ .authors | markdownify}}</h5>
-                            <h3 class="small_bottom_margin">{{ .blurb | markdownify}}</p>
+                            <p style="font-weight: 600;" class="no_margins">{{ .title }}</h2>
+                            <h6 class="no_margins">{{ .authors | markdownify}}</h6>
+                            <h3 class="no_margins">{{ .blurb | markdownify}}</h3>
+
+                            <div class="research_buttons">
+                                <a class="yellow_text_button" href={{.paper}} target="_blank">
+                                    Paper
+                                    <svg class="yellow_arrow_icon" width="23" height="23">
+                                        <use href="#circle_arrow"/>
+                                    </svg>
+                                </a>
+
+                                {{ if .poster }}
+                                    <a class="yellow_text_button" href="{{.poster}}" target="_blank">
+                                        Poster
+                                        <svg class="yellow_arrow_icon" width="23" height="23">
+                                            <use href="#circle_arrow"/>
+                                        </svg>
+                                    </a>
+                                {{ end }}
+                            </div>
                         </div>
                     </div>
                 {{end}}
@@ -63,7 +99,7 @@
     {{ with .Site.Params.projects_section}}
     <section id="projects" class="section" style="background: var(--faint-blue)">
         <div class = "center">
-            <h1 class="small_bottom_margin">{{ .header }}</h1>
+            <h1>{{ .header }}</h1>
 
             <div class = "project_container">
                 {{/*  For each project entry, create a small project entry card  */}}
@@ -71,7 +107,7 @@
                     {{/*  Fetch optional configurations for each entry  */}}
                     {{ $entry_width := cond (isset . "width") .width 1}} {{/* Default width = 1 */}}
                     {{ $entry_posn := cond (isset . "img_posn") .img_posn "center"}} {{/* Default img posn = center */}}
-                    <div
+                    <a
                         class="project_entry outline_shadow"
                         style='background: white; grid-column-end:span {{ $entry_width }}'
                     >
@@ -80,7 +116,7 @@
                             style="background: url({{ .image | absURL }}) {{ $entry_posn }}">
                         </div>
                         <h4>{{ .title }}</h4>
-                    </div>
+                    </a>
                 {{ end }}
             </div>
         </div>

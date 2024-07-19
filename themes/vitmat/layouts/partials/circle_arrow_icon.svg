@@ -1,7 +1,0 @@
-<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <symbol id="circle_arrow">
-        <rect id="interior" x="1.25" y="1.25" width="20.5" height="20.5" rx="10.25" fill="#C9E4B4"/>
-        <rect id="border" x="1.25" y="1.25" width="20.5" height="20.5" rx="10.25" stroke="black" stroke-width="1.5"/>
-        <path id="arrow" d="M7 15.3594L14.7188 7.64062M14.7188 7.64062H9.375M14.7188 7.64062V12.9844" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
-</svg>

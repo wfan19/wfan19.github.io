@@ -30,24 +30,26 @@ header = "Publications."
 
 # Each research experience is its own entry
 [[params.research_section.entry]]
-image = "images/modsim_cae.png"
+image = "images/ASEE 200x300.jpg"
 title = """Beyond "How's it going?": A Collaborative Autoethnographic Study by Early Instructors in a First-Year Engineering Studio Course"""
 authors = "Esme E Abbot, Berwin Lan, Luke Raus, **Bill Fan**, Zachary del Rosario"
 blurb = """
-Studio pedagogies are increasingly popular, but teaching in one is difficult. We studied how new instructors learn to teach \
-in a studio environment through a collective autoethnographic study of four undergraduate course assistants (us!). We identified challenges new instructors \
-faced and strategies they devised to address them. *Olin* | *ASEE 2024.* [[paper]](pdfs/ASEE_2024_ModSim_CAE.pdf) 
-"""
+Studio teaching is increasingly popular, but teaching in one is difficult, especially for new instructors. \
+We studied how new instructors learn to teach in a studio environment through a collective ethnography of \
+four undergrad course assistants. We identified challenges new instructors faced and strategies they in response. *Olin* | *ASEE 2024*."""
+
+paper = "pdfs/ASEE_2024_ModSim_CAE.pdf"
 
 [[params.research_section.entry]]
-image = "images/helical_60psi 1.png"
+image = "images/snake_boomerang_700x1082.gif"
 title = "Linear Kinematics for General Constant Curvature and Torsion Manipulators"
 authors = "**Bill Fan***, Farhan Rozaidi, Capprin Bass, Gina Olson, Melinda Malley, Ross L Hatton"
 blurb = """
-Helically-wound muscles greatly increase continuum arm workspaces by enabling twisting, but are more difficult to model. \ 
+Inspired by octopus arms, helically-wound muscles greatly increase continuum arm workspaces, but they are more difficult to model and control. \ 
 We present a novel application of Lie theory to simplify the modeling of constant twist soft robots, and unify modeling across different designs. \
-Lightning talk at Robosoft 2023, and 3rd place best workshop poster. *Olin, OSU, UMass* | \
- *Robosoft 2023* [[paper]](https://arxiv.org/abs/2302.11661) [[poster]](pdfs/Robosoft_Poster.pdf)"""
+Lightning talk at Robosoft 2023, and 3rd place best workshop poster. *Olin, OSU, UMass* | *Robosoft 2023*"""
+paper = "https://arxiv.org/abs/2302.11661"
+poster = "pdfs/Robosoft_Poster.pdf"
 
 # [[params.research_section.entry]]
 # image="images/underwater slam.png"
