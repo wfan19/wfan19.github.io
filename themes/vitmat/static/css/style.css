@@ -85,7 +85,7 @@ h4{
   color: var(--black);
   font-family: Lato;
   font-weight: "bold";
-  font-size: 13px;
+  font-size: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 5px;
@@ -242,15 +242,30 @@ p{
 
   align-items: center;
   padding-right: 30px;
+
+  cursor: pointer;
+}
+
+.small_vertical_card{
+  display:flex;
+  flex-direction:column;
+
+  overflow: hidden;
+
+  background: var(--white);
+  box-shadow: 7px 7px 0px var(--black);
+  border: 3px solid var(--black);
+  border-radius: 12px;
+
 }
 
 .research_entry:hover{
   box-shadow: 7px 7px 0px var(--yellow);
 }
-/* 
+
 .research_entry:active{
   box-shadow: 7px 7px 0px var(--dark-yellow);
-} */
+}
 
 .card_buttons{
   display: flex;
@@ -286,13 +301,28 @@ p{
   border-right: 3px solid var(--black);
 }
 
+.small_project_img{
+  height: 150px;
+  width: 100%;
+  background-size: cover !important;
+
+  border-bottom: 3px solid var(--black);
+}
+
 .project_entry:hover{
   box-shadow: 7px 7px 0px var(--blue);
 }
 
-/* .project_entry:active{
+.project_grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.project_entry:active{
   box-shadow: 7px 7px 0px var(--dark-blue);
-} */
+}
 
 /* ========================================================================================= */
 /*                          ICONS & BUTTONS                                                  */

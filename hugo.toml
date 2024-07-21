@@ -91,47 +91,48 @@ of multiple minutes of airtime. We added motorized hydrofoils with \
 ROS controls to an existing boat hull, developed a simulation, and used it to implement a cascaded PID controller. """
 img_posn = "70% 20%"
 
-# [[params.projects_section.entry]]
-# image="images/twist lab group.JPG"
-# title="Twist Lab: a student-run soft robotics research group"
-# width=2
-# img_posn="50% 40%"
+[params.projects_page]
+[[params.projects_page.entry]]
+image="images/twist lab group.JPG"
+title="Twist Lab: a student-run soft robotics research group."
+width=2
+img_posn="50% 40%"
 
-# [[params.projects_section.entry]]
-# image="images/neato star.jpg"
-# title="Art2D2: automatic robotic drawing!"
+[[params.projects_page.entry]]
+image="images/neato star.jpg"
+title="Art2D2: automatic robotic drawing!"
 
-# [[params.projects_section.entry]]
-# image="images/gcs success.png"
-# title="Path planning w/ mixed-integer optimization"
+[[params.projects_page.entry]]
+image="images/gcs success.png"
+title="Path planning w/ mixed-integer optimization."
 
-# [[params.projects_section.entry]]
-# image="images/cosserat rod image.png"
-# title="Cosserat elastic rod model simulation"
+[[params.projects_page.entry]]
+image="images/cosserat rod image.png"
+title="Cosserat elastic rod model simulation."
 
-# [[params.projects_section.entry]]
-# image="images/colloidal glass sim.png"
-# title="Simulating and rendering mass particle collisions"
+[[params.projects_page.entry]]
+image="images/colloidal glass sim.png"
+title="Simulating and rendering mass particle collisions."
 
-# [[params.projects_section.entry]]
-# image="images/ProbMod Final square.png"
-# title="Inferring and simulating stochastic processes"
-# img_posn="7%"
+[[params.projects_page.entry]]
+image="images/ProbMod Final square.png"
+title="Inferring and simulating stochastic processes."
+img_posn="7%"
 
-# [[params.projects_section.entry]]
-# image="images/maglev.png"
-# title="Electromagnetic levitation control"
+[[params.projects_page.entry]]
+image="images/maglev.png"
+title="Electromagnetic levitation control."
 
-# [[params.projects_section.entry]]
-# image="images/ferrofluid in action.png"
-# title="Magnet controlled ferrofluid display"
+[[params.projects_page.entry]]
+image="images/ferrofluid in action.png"
+title="Magnet controlled ferrofluid display."
 
-# [[params.projects_section.entry]]
-# image="images/modsim control.png"
-# title="Optimal control of a bouncing ball"
-# img_posn="10%"
+[[params.projects_page.entry]]
+image="images/modsim control.png"
+title="Optimal control of a bouncing ball."
+img_posn="10%"
 
-# [[params.projects_section.entry]]
-# image="images/foiling nacra.png"
-# title="Autonomous control of a hydrofoiling Nacra 17 watercraf"
-# width=2
+[[params.projects_page.entry]]
+image="images/foiling nacra.png"
+title="Autonomous control of a hydrofoiling Nacra 17 watercraft."
+width=2

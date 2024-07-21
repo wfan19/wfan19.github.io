@@ -59,7 +59,7 @@
             <div class="research_container">
                 {{/*  For each research entry, create a research-entry card  */}}
                 {{ range .entry }}
-                    <div class="horizontal_card research_entry" href="{{ .paper }}">
+                    <div class="horizontal_card research_entry" href="{{ .paper }}" onclick="location.href='{{ .paper }}'">
                         {{/*  Fetch optional image placement configs for each entry  */}}
                         {{ $entry_posn := cond (isset . "img_posn") .img_posn "center"}} {{/* Default img posn = center */}}
                         <div class="research_img", style="background: url({{ .image | absURL }}) {{ $entry_posn }}"></div>
@@ -105,7 +105,7 @@
                 {{/*  For each project entry, create a small project entry card  */}}
                 {{ range .entry }}
 
-                    <div class="horizontal_card project_entry">
+                    <div class="horizontal_card project_entry" onclick="location.href='{{.url}}'">
                         {{/*  Fetch optional image placement configs for each entry  */}}
                         {{ $entry_posn := cond (isset . "img_posn") .img_posn "center"}} {{/* Default img posn = center */}}
                         <div class="project_img", style="background: url({{ .image | absURL }}) {{ $entry_posn }}"></div>
