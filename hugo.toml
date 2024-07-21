@@ -68,7 +68,7 @@ show = true
 header = "Projects."
 
 # Each project card is its own entry
-# TODO: Links from the project card to detailed pages
+# unfinished: Links from the project card to detailed pages
 [[params.projects_section.entry]]
 image = "images/twist lab group.JPG"
 title="Co-founding a soft-robotics research group"
@@ -90,6 +90,7 @@ blurb="""During my gap year before college, my friend and I built an autonomousl
 of multiple minutes of airtime. We added motorized hydrofoils with \
 ROS controls to an existing boat hull, developed a simulation, and used it to implement a cascaded PID controller. """
 img_posn = "70% 20%"
+url="https://bf01.notion.site/Foiling-Nacra17-Control-a03159182eb5465088771b2a66bf4355?pvs=4"
 
 [params.projects_page]
 [[params.projects_page.entry]]
@@ -97,42 +98,52 @@ image="images/twist lab group.JPG"
 title="Twist Lab: a student-run soft robotics research group."
 width=2
 img_posn="50% 40%"
+url=""
 
 [[params.projects_page.entry]]
 image="images/neato star.jpg"
 title="Art2D2: automatic robotic drawing!"
+url="https://sites.google.com/view/comprobo-23-art2d2/home"
 
 [[params.projects_page.entry]]
 image="images/gcs success.png"
 title="Path planning w/ mixed-integer optimization."
+url="/projects/unfinished"
 
 [[params.projects_page.entry]]
 image="images/cosserat rod image.png"
 title="Cosserat elastic rod model simulation."
+url="/projects/unfinished"
 
 [[params.projects_page.entry]]
 image="images/colloidal glass sim.png"
 title="Simulating and rendering mass particle collisions."
+url="/projects/unfinished"
 
 [[params.projects_page.entry]]
 image="images/ProbMod Final square.png"
 title="Inferring and simulating stochastic processes."
 img_posn="7%"
+url="/projects/unfinished"
 
 [[params.projects_page.entry]]
 image="images/maglev.png"
 title="Electromagnetic levitation control."
+url="/projects/unfinished"
 
 [[params.projects_page.entry]]
 image="images/ferrofluid in action.png"
 title="Magnet controlled ferrofluid display."
+url="/projects/unfinished"
 
 [[params.projects_page.entry]]
 image="images/modsim control.png"
 title="Optimal control of a bouncing ball."
 img_posn="10%"
+url="/projects/hydrofoiling"
 
 [[params.projects_page.entry]]
 image="images/foiling nacra.png"
 title="Autonomous control of a hydrofoiling Nacra 17 watercraft."
 width=2
+url="https://bf01.notion.site/Foiling-Nacra17-Control-a03159182eb5465088771b2a66bf4355?pvs=4"

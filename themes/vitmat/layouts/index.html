@@ -14,7 +14,7 @@
 
                     <div class="header_menu">
                         <a class="header_menu_text" href="/">Home</a>
-                        <a class="header_menu_text" href="projects/">Projects</a>
+                        <a class="header_menu_text" href="/projects/">Projects</a>
                         <a class="header_menu_text" href={{ "pdfs/Bill_Fan_CV_7_19_2024.pdf" | absURL }} target="_blank" >CV</a>
                     </div>
                 </div>
@@ -32,14 +32,14 @@
                 </div>
 
                 <div class="header_buttons_container">
-                    <a class="header_button" href={{ "pdfs/Bill_Fan_CV_7_19_2024.pdf" | absURL }} target="_blank" >
+                    <a class="green_bounded_button" href={{ "pdfs/Bill_Fan_CV_7_19_2024.pdf" | absURL }} target="_blank" >
                         CV
                         <svg class="green_arrow_icon" width="23" height="23">
                             <use href="#circle_arrow"/>
                         </svg>
                     </a>
 
-                    <a class="header_button" href={{"https://scholar.google.com/citations?user=Ko8Ih50AAAAJ&hl=en"}} target="_blank" >
+                    <a class="green_bounded_button" href={{"https://scholar.google.com/citations?user=Ko8Ih50AAAAJ&hl=en"}} target="_blank" >
                         Scholar
                         <svg class="green_arrow_icon" width="23" height="23">
                             <use href="#circle_arrow"/>
@@ -124,8 +124,14 @@
                             </div>
                         </div>
                     </div>
-
                 {{ end }}
+
+                <a class="blue_bounded_button" style="margin-left: auto" href="/projects/">
+                    All projects
+                    <svg class="blue_arrow_icon" width="23" height="23">
+                        <use href="#circle_arrow"/>
+                    </svg>
+                </a>
             </div>
         </div>
 

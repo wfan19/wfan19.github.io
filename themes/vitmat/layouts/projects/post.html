@@ -1,0 +1,31 @@
+{{ partial "head_meta.html"}}
+{{ partial "circle_arrow_icon.html"}}
+
+<main>
+    <header class="header_section" style="background: var(--faint-blue)">
+        <div class="center">
+            <div class="header_container">
+
+                <div class="header_bar">
+                    <div class="header_title">
+                        <h1 class="no_margins">Projects.</h1>
+                    </div>
+
+                    <div class="header_menu">
+                        <a class="header_menu_text" href="/">Home</a>
+                        <a class="header_menu_text" href="/projects/">Projects</a>
+                        <a class="header_menu_text" href={{ "pdfs/Bill_Fan_CV_7_19_2024.pdf" | absURL }} target="_blank" >CV</a>
+                    </div>
+                </div>
+
+                <h2 > {{.Title}} </h2>
+
+                {{/*  For each project entry, create a small project entry card  */}}
+                <article itemprop="articleBody" id="content" class="w-90 lh-copy">
+                    {{ .Content }}
+                </article>
+            </div>
+
+
+    </header>
+</main>

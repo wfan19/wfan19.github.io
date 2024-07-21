@@ -2,18 +2,18 @@
 {{ partial "circle_arrow_icon.html"}}
 
 <main>
-    <header class="header_section" style="background: var(--faint-green)">
+    <header class="header_section" style="background: var(--faint-blue)">
         <div class="center">
             <div class="header_container">
 
                 <div class="header_bar">
                     <div class="header_title">
-                        <h1 class="no_margins">Projects</h1>
+                        <h1 class="no_margins">Projects.</h1>
                     </div>
 
                     <div class="header_menu">
                         <a class="header_menu_text" href="/">Home</a>
-                        <a class="header_menu_text" href="projects/">Projects</a>
+                        <a class="header_menu_text" href="/projects/">Projects</a>
                         <a class="header_menu_text" href={{ "pdfs/Bill_Fan_CV_7_19_2024.pdf" | absURL }} target="_blank" >CV</a>
                     </div>
                 </div>
@@ -29,6 +29,7 @@
                         <div
                             class="small_vertical_card project_entry"
                             style='background: white; grid-column-end:span {{ $entry_width }}'
+                            onclick="location.href='{{ .url }}'"
                         >
                             <div
                                 class="small_project_img",

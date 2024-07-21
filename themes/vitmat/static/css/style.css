@@ -73,6 +73,13 @@ h1{
   margin: 0px 0px 0px 0px;
 }
 
+h2{
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 1.5em;
+  color: var(--black);
+}
+
 h3{
   color: var(--black);
   font-family: Lato;
@@ -144,6 +151,18 @@ p{
   margin-left: auto;
   margin-right: auto;
   width: 1050px;
+}
+
+main{
+  padding-bottom: 50px;
+}
+
+content{
+  width: 100%;
+}
+
+img{
+  width: 100%;
 }
 
 .center{
@@ -257,6 +276,7 @@ p{
   border: 3px solid var(--black);
   border-radius: 12px;
 
+  cursor: pointer;
 }
 
 .research_entry:hover{
@@ -318,6 +338,7 @@ p{
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 30px;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .project_entry:active{
@@ -335,7 +356,7 @@ p{
   column-gap: 40px;
 }
 
-.header_button{
+.green_bounded_button{
   /* TODO: Fix these! */
   height: auto;
   width: auto;
@@ -381,11 +402,11 @@ p{
 }
 
 /* Buttons for the intro section */
-.header_button:hover{
+.green_bounded_button:hover{
   background: var(--light-green)
 }
 
-.header_button:active{
+.green_bounded_button:active{
   background: var(--green)
 }
 
@@ -479,4 +500,44 @@ p{
 
 .blue_text_button:active .blue_arrow_icon{
   fill: var(--dark-blue)
+}
+
+.blue_bounded_button{
+  /* TODO: Fix these! */
+  height: auto;
+  width: auto;
+  max-width: 33%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 8px;
+
+  background: var(--white);
+  box-shadow: 4px 4px 0px var(--black);
+  border: 2px solid var(--black);
+  border-radius: 15px;
+
+  font-family: lato;
+  font-weight: bold;
+  color: var(--black);
+  font-size:15;
+  text-align:center;
+  text-decoration: none;
+}
+
+.blue_bounded_button:hover{
+  background: var(--light-blue)
+}
+
+.blue_bounded_button:active{
+  background: var(--blue)
 }
