@@ -32,6 +32,13 @@ a:visited{
   color: var(--black)
 }
 
+a.fill_div{
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+
 html{
   margin: 0px;
   padding: 0px;
@@ -336,7 +343,7 @@ p{
 }
 
 .yellow_arrow_icon{
-  fill: var(--medium-light-yellow)
+  fill: var(--light-yellow)
 }
 
 .blue_arrow_icon{
