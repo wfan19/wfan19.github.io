@@ -9,7 +9,7 @@
                 <div class="header_bar">
                     <div class="header_title">
                         <h1 class="no_margins"> {{ .Site.Params.intro.header}}</h1>
-                        <h5 class="no_margins"> {{.Site.Params.intro.email }}</h6>
+                        <h6 class="no_margins" style="font-style:italic"> {{.Site.Params.intro.email }}</h6>
                     </div>
 
                     <div class="header_menu">
@@ -39,8 +39,8 @@
                         </svg>
                     </a>
 
-                    <a class="green_bounded_button" href={{"https://scholar.google.com/citations?user=Ko8Ih50AAAAJ&hl=en"}} target="_blank" >
-                        Scholar
+                    <a class="green_bounded_button" href={{"https://www.github.com/wfan19"}} target="_blank" >
+                        Github
                         <svg class="green_arrow_icon" width="23" height="23">
                             <use href="#circle_arrow"/>
                         </svg>
@@ -65,9 +65,9 @@
                         <div class="research_img", style="background: url({{ .image | absURL }}) {{ $entry_posn }}"></div>
 
                         <div class="card_description">
-                            <p style="font-weight: 600;" class="no_margins">{{ .title }}</h2>
+                            <h3 class="no_margins">{{ .title }}</h3>
                             <h6 class="no_margins">{{ .authors | markdownify}}</h6>
-                            <h3 class="no_margins">{{ .blurb | markdownify}}</h3>
+                            <h5 class="no_margins">{{ .blurb | markdownify}}</h5>
 
                             <div class="card_buttons">
                                 <a class="yellow_text_button" href={{.paper}} target="_blank">
@@ -111,8 +111,8 @@
                         <div class="project_img", style="background: url({{ .image | absURL }}) {{ $entry_posn }}"></div>
 
                         <div class="card_description">
-                            <p style="font-weight: 600;" class="no_margins">{{ .title }}</h2>
-                            <h3 class="no_margins">{{ .blurb | markdownify}}</h3>
+                            <h3 class="no_margins">{{ .title }}</h3>
+                            <h5 class="no_margins">{{ .blurb | markdownify}}</h5>
 
                             <div class="card_buttons">
                                 <a class="blue_text_button" href={{.paper}} target="_blank">

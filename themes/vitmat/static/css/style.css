@@ -76,7 +76,7 @@ h1{
 h2{
   font-family: Montserrat;
   font-weight: 600;
-  font-size: 1.5em;
+  font-size: 30px;
   color: var(--black);
 }
 
@@ -84,7 +84,8 @@ h3{
   color: var(--black);
   font-family: Lato;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 21px;
+  font-weight: 600;
 }
 
 /*  Project card text  */
@@ -103,8 +104,7 @@ h5 {
   color: var(--black);
   font-family: Lato;
   font-weight: normal;
-  font-style: italic;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 h6 {
@@ -114,10 +114,10 @@ h6 {
   font-size: 12px;
 }
 
-p{
+p, li{
   font-family: Lato;
   font-weight: normal;
-  font-size: 21px;
+  font-size: 18px;
   color: var(--black);
 }
 
@@ -162,7 +162,15 @@ content{
 }
 
 img{
-  width: 100%;
+  width: 90%;
+  height: auto;
+  
+  margin: 40px auto 40px auto;
+  display: block;
+
+  border: 2px solid var(--black);
+  border-radius: 12px;
+  box-shadow: 7px 7px 0px var(--black)
 }
 
 .center{
@@ -322,7 +330,7 @@ img{
 }
 
 .small_project_img{
-  height: 150px;
+  height: 200px;
   width: 100%;
   background-size: cover !important;
 
@@ -336,7 +344,7 @@ img{
 .project_grid{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 30px;
+  gap: 32px;
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -398,7 +406,7 @@ img{
 }
 
 .blue_arrow_icon{
-  fill: var(--medium-light-blue)
+  fill: var(--light-blue)
 }
 
 /* Buttons for the intro section */

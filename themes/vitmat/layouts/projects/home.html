@@ -28,14 +28,14 @@
                         {{ $entry_posn := cond (isset . "img_posn") .img_posn "center"}} {{/* Default img posn = center */}}
                         <div
                             class="small_vertical_card project_entry"
-                            style='background: white; grid-column-end:span {{ $entry_width }}'
+                            style='background: white; grid-column-end:span 2'
                             onclick="location.href='{{ .url }}'"
                         >
                             <div
                                 class="small_project_img",
                                 style="background: url({{ .image | absURL }}) {{ $entry_posn }}">
                             </div>
-                            <h4>{{ .title }}</h4>
+                            <h4 style="margin: 20px 10px 20px 10px;">{{ .title }}</h4>
                         </div>
                     {{ end }}
                     {{ end }}

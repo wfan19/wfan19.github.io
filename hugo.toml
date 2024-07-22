@@ -14,14 +14,20 @@ email = "billfan.2001@gmail.com"
 
 # Intro section paragraphs - each paragraph is a list entry
 [[params.intro.paragraph]]
-text = """I’m a graduating senior at Olin College of Engineering and robotics researcher. \
-My research studies how we can use computational models and bio-inspiration to \
-design robots to effectively work alongside us. \
-So far, I have worked with three different labs between OSU, Olin, and UMass."""
+text="Hi! I'm a robotics engineer and researcher who just graduated from Olin College of Engineering."
 
 [[params.intro.paragraph]]
-text="""Outside of research, I’ve also worked on SLAM and controls on autonomous systems. \
-Currently, I am building novel genome sequencing technologies at XGenomes."""
+text="""As a researcher, I've derived novel models and algorithms based on biomechanics in snakes, octopuses, and elephants, \
+and I've used these to design and control soft robot arms to safely work alongside humans. \
+I published this work as the first author in my 3rd year, and was invited to give a conference talk as the sole undergrad speaker, where it won 3rd best poster at a workshop."""
+
+[[params.intro.paragraph]]
+text="""As an engineer, I've developed robotics controls and sensing algorithms on hydrofioiling boats and construction robots. \
+This includes firmware, nonlinear controllers, SLAM algorithms, simulators, and motion capture, both in C++ and Python."""
+
+[[params.intro.paragraph]]
+text="""I am currently building novel genome sequencing technologies at XGenomes as a microfluidics engineer while applying to PhD programs this fall. \
+I'm interested in applying computational modeling to better understand biological systems, and applying them to improve engineered solutions."""
 
 ## Research section configuration
 [params.research_section]
@@ -29,6 +35,15 @@ show = true
 header = "Publications."
 
 # Each research experience is its own entry
+[[params.research_section.entry]]
+image = "images/bounds_test.png"
+title = """[IN PREPARATION] Fast Evaluation of Continuum Arms Against Target Arm Geometry and Loads"""
+authors = "Bill Fan, Jacob Roulier, Gina Olson"
+blurb = """Determining whether a proposed continuum arm design can complete a specified task and load is \
+computationally expensive due to the need for simulation. We introduce a novel method of analysis that eliminates \
+the need for simulation, speeding up computation by 20x, and creates novel metrics for evaluating arm designs against tasks. *Olin, UMass* | *In preparation for ICRA 2025*. 
+"""
+
 [[params.research_section.entry]]
 image = "images/ASEE 200x300.jpg"
 title = """Beyond "How's it going?": A Collaborative Autoethnographic Study by Early Instructors in a First-Year Engineering Studio Course"""
@@ -76,74 +91,75 @@ img_posn = "50% 40%"
 blurb = """In my 3rd year I co-founded Twist Lab - a soft robotics research group with 10 students. \
 As PM I was responsible for raising over $7,500 in lab funding from grants, supported projects in the \
 design, control, and simulation of soft robotics, and helped students apply to fellowships. """
+url="/projects/twist_lab"
+
+[[params.projects_section.entry]]
+image = "images/foiling.gif"
+title="Autonomous foiling of a Nacra 17"
+blurb="""During my gap year before college, I built an autonomously hydrofoiling boat prototype at an early stage startup capable \
+of multiple minutes of airtime. We added motorized hydrofoils with \
+ROS controls to an existing boat hull, developed a simulation, and used it to implement a cascaded PID controller. """
+img_posn = "70% 20%"
+url="/projects/hydrofoiling"
+
+[[params.projects_section.entry]]
+image= "images/maglev_cropped.gif"
+title= "Design and control of a maglev system."
+blurb= """As the lead course assistant, I (re-)designed the final-project system for the Feedback Controls course at Olin, and created kits for all students. \
+In the month-long project the students levitate a permanent magnet using an electromagnet and a hall-effect sensor. Gif by Krishna Suresh.
+"""
+url="/projects/maglev"
 
 [[params.projects_section.entry]]
 image = "images/500_balls_300x300.gif"
 title="GPU Rendered Colloidal Glass Simulation"
 blurb = """In my scientific computing class, I implemented a particle based model of the non-linear phase change of glass using Python. \
-To render the results, I implemented a modern OpenGL shader pipeline, complete with a phong lighting model and full camera movement in 3D space. """
+To render the results, I implemented a modern OpenGL GPU-programming shader pipeline, complete with a phong lighting model and full camera movement in 3D space. """
+url="/projects/unfinished"
 
-[[params.projects_section.entry]]
-image = "images/foiling nacra.png"
-title="Autonomous foiling of a Nacra 17"
-blurb="""During my gap year before college, my friend and I built an autonomously hydrofoiling boat capable \
-of multiple minutes of airtime. We added motorized hydrofoils with \
-ROS controls to an existing boat hull, developed a simulation, and used it to implement a cascaded PID controller. """
-img_posn = "70% 20%"
-url="https://bf01.notion.site/Foiling-Nacra17-Control-a03159182eb5465088771b2a66bf4355?pvs=4"
-
+## Projects page
 [params.projects_page]
 [[params.projects_page.entry]]
 image="images/twist lab group.JPG"
-title="Twist Lab: a student-run soft robotics research group."
+title="Twist Lab: co-founding a student-run soft robotics research group."
 width=2
 img_posn="50% 40%"
-url=""
-
-[[params.projects_page.entry]]
-image="images/neato star.jpg"
-title="Art2D2: automatic robotic drawing!"
-url="https://sites.google.com/view/comprobo-23-art2d2/home"
-
-[[params.projects_page.entry]]
-image="images/gcs success.png"
-title="Path planning w/ mixed-integer optimization."
-url="/projects/unfinished"
-
-[[params.projects_page.entry]]
-image="images/cosserat rod image.png"
-title="Cosserat elastic rod model simulation."
-url="/projects/unfinished"
-
-[[params.projects_page.entry]]
-image="images/colloidal glass sim.png"
-title="Simulating and rendering mass particle collisions."
-url="/projects/unfinished"
-
-[[params.projects_page.entry]]
-image="images/ProbMod Final square.png"
-title="Inferring and simulating stochastic processes."
-img_posn="7%"
-url="/projects/unfinished"
-
-[[params.projects_page.entry]]
-image="images/maglev.png"
-title="Electromagnetic levitation control."
-url="/projects/unfinished"
-
-[[params.projects_page.entry]]
-image="images/ferrofluid in action.png"
-title="Magnet controlled ferrofluid display."
-url="/projects/unfinished"
-
-[[params.projects_page.entry]]
-image="images/modsim control.png"
-title="Optimal control of a bouncing ball."
-img_posn="10%"
-url="/projects/hydrofoiling"
+url="/projects/twist_lab"
 
 [[params.projects_page.entry]]
 image="images/foiling nacra.png"
 title="Autonomous control of a hydrofoiling Nacra 17 watercraft."
 width=2
-url="https://bf01.notion.site/Foiling-Nacra17-Control-a03159182eb5465088771b2a66bf4355?pvs=4"
+url="/projects/hydrofoiling"
+
+[[params.projects_page.entry]]
+image="images/gcs_success.png"
+title="Path planning w/ mixed-integer optimization."
+url="/projects/gcs"
+
+[[params.projects_page.entry]]
+image="images/500_balls_300x300.gif"
+title="Simulating and rendering mass particle collisions."
+url="/projects/unfinished"
+
+[[params.projects_page.entry]]
+image="images/maglev_cropped.gif"
+title="Design and control of a maglev system."
+url="/projects/maglev"
+
+[[params.projects_page.entry]]
+image="images/awesome_ferrofluid.gif"
+title="A ferrofluid display controlled by electromagnets."
+url="https://pietroglyph.github.io/ferrofluid-display/"
+img_posn="50% 80%"
+
+[[params.projects_page.entry]]
+image="images/bouncing_ball_fast.gif"
+title="Simulation and optimal control of a bouncing ball by a movable platform"
+img_posn="0%"
+url="/projects/ball_bouncing"
+
+[[params.projects_page.entry]]
+image="images/neato star.jpg"
+title="Art2D2: robotic drawing using lidar SLAM."
+url="https://sites.google.com/view/comprobo-23-art2d2/home"
