@@ -36,7 +36,7 @@ header = "Publications."
 
 # Each research experience is its own entry
 [[params.research_section.entry]]
-image = "images/bounds_test.png"
+image = "images/bounds_test_cropped.jpg"
 title = """[IN PREPARATION] Fast Evaluation of Continuum Arms Against Target Arm Geometry and Loads"""
 authors = "Bill Fan, Jacob Roulier, Gina Olson"
 blurb = """Determining whether a proposed continuum arm design can complete a specified task and load is \
