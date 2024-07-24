@@ -127,7 +127,7 @@ img_posn="50% 40%"
 url="/projects/twist_lab"
 
 [[params.projects_page.entry]]
-image="images/foiling nacra.png"
+image="images/foiling.gif"
 title="Autonomous control of a hydrofoiling Nacra 17 watercraft."
 width=2
 url="/projects/hydrofoiling"
