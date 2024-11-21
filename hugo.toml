@@ -27,7 +27,7 @@ This includes firmware, nonlinear controllers, SLAM algorithms, simulators, and 
 
 [[params.intro.paragraph]]
 text="""I am currently building novel genome sequencing technologies at XGenomes as a microfluidics engineer while applying to PhD programs this fall. \
-I'm interested in applying computational modeling to better understand biological systems, and applying them to improve engineered solutions."""
+I'm interested in applying computational modeling to better understand biological systems, and using this understanding to improve engineered solutions."""
 
 ## Research section configuration
 [params.research_section]
@@ -36,13 +36,14 @@ header = "Publications."
 
 # Each research experience is its own entry
 [[params.research_section.entry]]
-image = "images/bounds_test_cropped.jpg"
-title = """[IN PREPARATION] Fast Evaluation of Continuum Arms Against Target Arm Geometry and Loads"""
+image = "images/robosoft_25_thumbnail.png"
+title = """A Fast and Model Based Approach for Evaluating Task-Competence of Antagonistic Continuum Arms"""
 authors = "Bill Fan, Jacob Roulier, Gina Olson"
 blurb = """Determining whether a proposed continuum arm design can complete a specified task and load is \
 computationally expensive due to the need for simulation. We introduce a novel method of analysis that eliminates \
-the need for simulation, speeding up computation by 20x, and creates novel metrics for evaluating arm designs against tasks. *Olin, UMass* | *In preparation for ICRA 2025*. 
+the need for simulation, speeding up computation by 80x, and creates novel metrics for evaluating arm designs against tasks. *Olin, UMass* | *Under review for Robosoft 2025*. 
 """
+paper="pdfs/Robosoft_2025_11_8.pdf"
 
 [[params.research_section.entry]]
 image = "images/ASEE 200x300.jpg"
