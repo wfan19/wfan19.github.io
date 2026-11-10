@@ -8,14 +8,10 @@
 
                 <div class="header_bar">
                     <div class="header_title">
-                        <h1 class="no_margins">Projects.</h1>
+                        <h1 class="no_margins">Projects</h1>
                     </div>
 
-                    <div class="header_menu">
-                        <a class="header_menu_text" href="/">Home</a>
-                        <a class="header_menu_text" href="/projects/">Projects</a>
-                        <a class="header_menu_text" href={{ "pdfs/Bill_Fan_CV_7_22_2024_clean_cut.pdf" | absURL }} target="_blank" >CV</a>
-                    </div>
+                    {{ partial "home_menu.html" (dict "site" .Site "current" "projects") }}
                 </div>
 
                 {{/*  For each project entry, create a small project entry card  */}}
@@ -26,15 +22,13 @@
                         {{/*  Fetch optional configurations for each entry  */}}
                         {{ $entry_width := cond (isset . "width") .width 0}} {{/* Default width = 1 */}}
                         {{ $entry_posn := cond (isset . "img_posn") .img_posn "center"}} {{/* Default img posn = center */}}
+                        {{ $entry_fit := cond (isset . "img_fit") .img_fit "fill" }} {{/* Default: crop to fill */}}
                         <div
-                            class="small_vertical_card project_entry"
+                            class="small_vertical_card project_entry clickable_card"
                             style='background: white; grid-column-end:span 2'
                             onclick="location.href='{{ .url }}'"
                         >
-                            <div
-                                class="small_project_img",
-                                style="background: url({{ .image | absURL }}) {{ $entry_posn }}">
-                            </div>
+                            {{ partial "card_image.html" (dict "image" .image "posn" $entry_posn "fit" $entry_fit "class" "small_project_img") }}
                             <h4 style="margin: 20px 10px 20px 10px;">{{ .title }}</h4>
                         </div>
                     {{ end }}

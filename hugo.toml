@@ -6,71 +6,116 @@ author="Bill Fan"
 [params]
 favicon="favicon.ico"
 
+## CV - linked from the nav menu on every page, and from the intro button
+[params.cv]
+url = "pdfs/Bill_Fan_CV_2026-11-09.pdf"
+
 ## Intro section / header configuration
 [params.intro]
-header = "Hi! I'm Bill."
-img_faceshot = "images/Bill_headshot_2024.png"
-email = "billfan.2001@gmail.com"
+header = "Hi! I'm Bill"
+img_faceshot = "images/Bill_headshot_2026.jpg"
+email = "bfan@utexas.edu"
+pronouns = "they/any"
 
 # Intro section paragraphs - each paragraph is a list entry
 [[params.intro.paragraph]]
-text="Hi! I'm a robotics engineer and researcher who just graduated from Olin College of Engineering."
+text="""I'm a 2nd year PhD student at the University of Texas, Austin, advised by Dr. Lillian Chin as a member of MERGe Lab. \
+I am a National Science Foundation (NSF) **Graduate Research Fellowship** Fellow."""
 
 [[params.intro.paragraph]]
-text="""As a researcher, I've derived novel models and algorithms based on biomechanics in snakes, octopuses, and elephants, \
-and I've used these to design and control soft robot arms to safely work alongside humans. \
-I published this work as the first author in my 3rd year, and was invited to give a conference talk as the sole undergrad speaker, where it won 3rd best poster at a workshop."""
+text="""My research spans robotics tactile sensing, design, and accessibility. \
+For robots, I am currently working on computational tools for optimizing tactile sensor designs. \
+For design and accessibility, I am co-designing university campus accessibility solutions that center the knowledge disabled people already have and use."""
 
 [[params.intro.paragraph]]
-text="""As an engineer, I've developed robotics controls and sensing algorithms on hydrofioiling boats and construction robots. \
-This includes firmware, nonlinear controllers, SLAM algorithms, simulators, and motion capture, both in C++ and Python."""
+text="""Outside of research, I have industry experience working on SLAM at Dusty Robotics and microfluidics automation at XGenomes. \
+When I'm not working, I like to take care of my house plants, cook, and read :)"""
 
-[[params.intro.paragraph]]
-text="""I am currently building novel genome sequencing technologies at XGenomes as a microfluidics engineer while applying to PhD programs this fall. \
-I'm interested in applying computational modeling to better understand biological systems, and using this understanding to improve engineered solutions."""
+# Intro section buttons - relative paths are resolved against the site root,
+# anything starting with http is used as-is.
+[[params.intro.button]]
+label = "CV"
+url = "pdfs/Bill_Fan_CV_2026-11-09.pdf"
+
+[[params.intro.button]]
+label = "Scholar"
+url = "https://scholar.google.com/citations?user=Ko8Ih50AAAAJ&hl=en"
+
+[[params.intro.button]]
+label = "Github"
+url = "https://github.com/wfan19"
 
 ## Research section configuration
 [params.research_section]
 show = true
-header = "Publications."
+header = "Publications"
 
-# Each research experience is its own entry
+# Each research experience is its own entry. Newest first.
+# /publications/ always renders every entry; the home page renders only the
+# ones marked `featured = true`.
+# Optional keys: image, img_posn, img_fit, venue, paper, poster, featured.
+#
+# img_fit controls how the thumbnail sits in its box:
+#   "fit"  - the whole image is scaled down so nothing is cropped
+#   "fill" - the image is cropped so that it completely fills the box (default)
+# With "fill", img_posn (a CSS background-position, e.g. "50% 20%") picks which
+# part of the image is kept. It has little effect with "fit".
+
+[[params.research_section.entry]]
+image = "images/bill2026assets.png"
+title = "BathMap: Designing a Platform For Mapping University Bathroom Accessibility"
+img_fit = "fit"
+featured = true
+authors = "**Bill Fan***, Stephanie Wang*, Shaini Nanayakkara, Min Kyung Lee, Lillian Chin, Earl Huff Jr."
+venue = "Poster @ ACM ASSETS 2026"
+blurb = """Lack of information about bathroom access is a major pain point in disabled people's access to public spaces — \
+a problem known as the 'bladder's leash'. We designed a bathroom map platform that builds on a student organization's \
+participatory mapping activism and combines it with crowd-sourcing. We performed open-ended formative studies, and user-testing."""
+paper="https://dl.acm.org/doi/10.1145/3797867.3841228"
+poster="pdfs/Bathmap_poster.pdf"
+
 [[params.research_section.entry]]
 image = "images/robosoft_25_thumbnail.png"
 title = """A Fast and Model Based Approach for Evaluating Task-Competence of Antagonistic Continuum Arms"""
-authors = "Bill Fan, Jacob Roulier, Gina Olson"
+img_fit = "fit"
+featured = true
+authors = "**Bill Fan**, Jacob Roulier, Gina Olson"
+venue = "Oral presentation @ Robosoft 2025"
 blurb = """Determining whether a proposed continuum arm design can complete a specified task and load is \
 computationally expensive due to the need for simulation. We introduce a novel method of analysis that eliminates \
-the need for simulation, speeding up computation by 80x, and creates novel metrics for evaluating arm designs against tasks. *Olin, UMass* | *Under review for Robosoft 2025*. 
-"""
-paper="pdfs/Robosoft_2025_11_8.pdf"
+the need for simulation, speeding up computation by 80x, and creates novel metrics for evaluating arm designs against tasks."""
+paper="https://arxiv.org/abs/2411.00241"
+poster="pdfs/Robosoft_2025_Poster.pdf"
 
 [[params.research_section.entry]]
 image = "images/ASEE 200x300.jpg"
 title = """Beyond "How's it going?": A Collaborative Autoethnographic Study by Early Instructors in a First-Year Engineering Studio Course"""
+img_fit = "fit"
 authors = "Esme E Abbot, Berwin Lan, Luke Raus, **Bill Fan**, Zachary del Rosario"
-blurb = """
-Studio teaching is increasingly popular, but teaching in one is difficult, especially for new instructors. \
+venue = "@ ASEE 2024"
+blurb = """Studio teaching is increasingly popular, but teaching in one is difficult, especially for new instructors. \
 We studied how new instructors learn to teach in a studio environment through a collective ethnography of \
-four undergrad course assistants. We identified challenges new instructors faced and strategies they in response. *Olin* | *ASEE 2024*."""
-
+four undergrad course assistants. We identified challenges new instructors faced and strategies they in response."""
 paper = "pdfs/ASEE_2024_ModSim_CAE.pdf"
 
 [[params.research_section.entry]]
 image = "images/snake_boomerang_700x1082.gif"
 title = "Linear Kinematics for General Constant Curvature and Torsion Manipulators"
+img_fit = "fill"
+featured = true
 authors = "**Bill Fan***, Farhan Rozaidi, Capprin Bass, Gina Olson, Melinda Malley, Ross L Hatton"
-blurb = """
-Inspired by octopus arms, helically-wound muscles greatly increase continuum arm workspaces, but they are more difficult to model and control. \ 
+venue = "Lightning talk @ Robosoft 2023"
+blurb = """Inspired by octopus arms, helically-wound muscles greatly increase continuum arm workspaces, but they are more difficult to model and control. \
 We present a novel application of Lie theory to simplify the modeling of constant twist soft robots, and unify modeling across different designs. \
-Lightning talk at Robosoft 2023, and 3rd place best workshop poster. *Olin, OSU, UMass* | *Robosoft 2023*"""
+Won 3rd place best workshop poster."""
 paper = "https://arxiv.org/abs/2302.11661"
-poster = "pdfs/Robosoft_Poster.pdf"
+poster = "pdfs/Robosoft_2023_Poster.pdf"
 
 # [[params.research_section.entry]]
 # image="images/underwater slam.png"
 # title = "Simultaneous Localization and Mapping for a Robotic Fish"
 # authors = "**Bill Fan**, Declan Freeman-Gleason, David Barrett"
+# venue = "Abstract submitted to IEEE OCEANS 2021"
 # blurb = """
 # Experimented with using an Unscented Kalman Filter and Apriltags to perform SLAM for a robotic fish. \
 # Compared different algorithm choices and manifold representations. \
@@ -81,7 +126,7 @@ poster = "pdfs/Robosoft_Poster.pdf"
 ## Projects section configuration
 [params.projects_section]
 show = true
-header = "Projects."
+header = "Projects"
 
 # Each project card is its own entry
 # unfinished: Links from the project card to detailed pages

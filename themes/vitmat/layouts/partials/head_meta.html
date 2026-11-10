@@ -8,7 +8,9 @@
 	<title>Hi, I'm Bill!</title>
 
 	<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:800, 700,600,400|Lato:regular,bold'>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@400;600;700;800&display=swap">
     <link rel="icon" type="image/x-icon" href='{{ "images/favicon.ico?" | absURL }}'>
 
 	{{ with .OutputFormats.Get "rss" -}}

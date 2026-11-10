@@ -1,0 +1,26 @@
+{{ partial "head_meta.html"}}
+{{ partial "circle_arrow_icon.html"}}
+
+<main>
+    <header class="header_section publications_section" style="background: var(--faint-yellow)">
+        <div class="center">
+            <div class="header_container">
+
+                <div class="header_bar">
+                    <div class="header_title">
+                        <h1 class="no_margins">{{ .Site.Params.research_section.header }}</h1>
+                    </div>
+
+                    {{ partial "home_menu.html" (dict "site" .Site "current" "publications") }}
+                </div>
+
+                {{/*  The full publication list, newest first  */}}
+                <div class="research_container">
+                    {{ range .Site.Params.research_section.entry }}
+                        {{ partial "publication_card.html" . }}
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </header>
+</main>

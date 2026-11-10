@@ -1,0 +1,43 @@
+{{- /*
+    A single publication card. Shared by the home page (which shows only the
+    most recent few) and the standalone publications list.
+
+    Expects one entry from params.research_section.entry as the context.
+    `image`, `img_posn`, `img_fit`, `venue`, `paper` and `poster` are all
+    optional.
+
+    The card itself is deliberately not a link - only the footer buttons are.
+*/ -}}
+{{- $entry_posn := cond (isset . "img_posn") .img_posn "center" -}}
+{{- $entry_fit := cond (isset . "img_fit") .img_fit "fill" -}}
+<article class="horizontal_card research_entry">
+    {{ with .image }}
+        {{ partial "card_image.html" (dict "image" . "posn" $entry_posn "fit" $entry_fit "class" "research_img") }}
+    {{ end }}
+
+    <div class="card_description{{ if not .image }} card_description_full{{ end }}">
+        <h3 class="no_margins card_title">{{ .title }}</h3>
+        <p class="no_margins card_authors">{{ .authors | markdownify }}</p>
+        <p class="no_margins card_blurb">{{ .blurb | markdownify }}</p>
+
+        <div class="card_footer">
+            <span class="card_venue">{{ with .venue }}{{ . | markdownify }}{{ end }}</span>
+
+            <div class="card_buttons">
+                {{ with .paper }}
+                    <a class="yellow_text_button" href="{{ . | absURL }}" target="_blank" rel="noopener">
+                        Paper
+                        {{ partial "arrow_icon.html" "yellow" }}
+                    </a>
+                {{ end }}
+
+                {{ with .poster }}
+                    <a class="yellow_text_button" href="{{ . | absURL }}" target="_blank" rel="noopener">
+                        Poster
+                        {{ partial "arrow_icon.html" "yellow" }}
+                    </a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</article>

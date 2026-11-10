@@ -2,49 +2,44 @@
 {{ partial "circle_arrow_icon.html"}}
 
 <main>
-    <header class="header_section" style="background: var(--faint-green)">
+    <header class="header_section intro_section" style="background: var(--faint-green)">
         <div class="center">
             <div class="header_container">
 
                 <div class="header_bar">
                     <div class="header_title">
                         <h1 class="no_margins"> {{ .Site.Params.intro.header}}</h1>
-                        <h6 class="no_margins" style="font-style:italic"> {{.Site.Params.intro.email }}</h6>
+                        <span class="header_subtitle">
+                            {{- .Site.Params.intro.email -}}
+                            {{- with .Site.Params.intro.pronouns }}&nbsp;&nbsp;-&nbsp;&nbsp;{{ . }}{{ end -}}
+                        </span>
                     </div>
 
-                    <div class="header_menu">
-                        <a class="header_menu_text" href="/">Home</a>
-                        <a class="header_menu_text" href="/projects/">Projects</a>
-                        <a class="header_menu_text" href={{ "pdfs/Bill_Fan_CV_7_19_2024.pdf" | absURL }} target="_blank" >CV</a>
-                    </div>
+                    {{ partial "home_menu.html" (dict "site" .Site "current" "home") }}
                 </div>
 
                 <div class="header_body">
-                    <div class="header_body_text">
-                        {{ range .Site.Params.intro.paragraph }}
-                            <p>{{ .text}}</p>
-                        {{end}}
+                    <div class="header_body_column">
+                        <div class="header_body_text">
+                            {{ range .Site.Params.intro.paragraph }}
+                                <p>{{ .text | markdownify }}</p>
+                            {{end}}
+                        </div>
+
+                        <div class="header_buttons_container">
+                            {{ range .Site.Params.intro.button }}
+                                {{ $href := cond (strings.HasPrefix .url "http") .url (.url | absURL) }}
+                                <a class="green_bounded_button" href="{{ $href }}" target="_blank" rel="noopener">
+                                    {{ .label }}
+                                    {{ partial "arrow_icon.html" "green" }}
+                                </a>
+                            {{ end }}
+                        </div>
                     </div>
 
                     {{  with .Site.Params.intro.img_faceshot  }}
-                        <div class="headshot_img outline_shadow", style="background: url({{ . | absURL }}) center"> </div>
+                        {{ partial "card_image.html" (dict "image" . "class" "headshot_img outline_shadow") }}
                     {{  end  }}
-                </div>
-
-                <div class="header_buttons_container">
-                    <a class="green_bounded_button" href={{ "pdfs/Bill_Fan_CV_7_19_2024.pdf" | absURL }} target="_blank" >
-                        CV
-                        <svg class="green_arrow_icon" width="23" height="23">
-                            <use href="#circle_arrow"/>
-                        </svg>
-                    </a>
-
-                    <a class="green_bounded_button" href={{"https://www.github.com/wfan19"}} target="_blank" >
-                        Github
-                        <svg class="green_arrow_icon" width="23" height="23">
-                            <use href="#circle_arrow"/>
-                        </svg>
-                    </a>
                 </div>
             </div>
         </div>
@@ -57,38 +52,20 @@
             <h1>{{ .header }}</h1>
 
             <div class="research_container">
-                {{/*  For each research entry, create a research-entry card  */}}
-                {{ range .entry }}
-                    <div class="horizontal_card research_entry" href="{{ .paper }}" onclick="location.href='{{ .paper }}'">
-                        {{/*  Fetch optional image placement configs for each entry  */}}
-                        {{ $entry_posn := cond (isset . "img_posn") .img_posn "center"}} {{/* Default img posn = center */}}
-                        <div class="research_img", style="background: url({{ .image | absURL }}) {{ $entry_posn }}"></div>
+                {{/*  Show only the entries flagged `featured` - the full list lives on /publications/.
+                      Falls back to the three newest if nothing is flagged.  */}}
+                {{ $featured := where .entry "featured" true }}
+                {{ if not $featured }}{{ $featured = first 3 .entry }}{{ end }}
+                {{ range $featured }}
+                    {{ partial "publication_card.html" . }}
+                {{ end }}
+            </div>
 
-                        <div class="card_description">
-                            <h3 class="no_margins">{{ .title }}</h3>
-                            <h6 class="no_margins">{{ .authors | markdownify}}</h6>
-                            <h5 class="no_margins">{{ .blurb | markdownify}}</h5>
-
-                            <div class="card_buttons">
-                                <a class="yellow_text_button" href={{.paper}} target="_blank">
-                                    Paper
-                                    <svg class="yellow_arrow_icon" width="23" height="23">
-                                        <use href="#circle_arrow"/>
-                                    </svg>
-                                </a>
-
-                                {{ if .poster }}
-                                    <a class="yellow_text_button" href="{{.poster}}" target="_blank">
-                                        Poster
-                                        <svg class="yellow_arrow_icon" width="23" height="23">
-                                            <use href="#circle_arrow"/>
-                                        </svg>
-                                    </a>
-                                {{ end }}
-                            </div>
-                        </div>
-                    </div>
-                {{end}}
+            <div class="section_footer">
+                <a class="yellow_text_button" href="{{ "publications/" | absURL }}">
+                    View all publications
+                    {{ partial "arrow_icon.html" "yellow" }}
+                </a>
             </div>
         </div>
     </section>
@@ -105,32 +82,33 @@
                 {{/*  For each project entry, create a small project entry card  */}}
                 {{ range .entry }}
 
-                    <div class="horizontal_card project_entry" onclick="location.href='{{.url}}'">
+                    <div class="horizontal_card project_entry clickable_card" onclick="location.href='{{.url}}'">
                         {{/*  Fetch optional image placement configs for each entry  */}}
                         {{ $entry_posn := cond (isset . "img_posn") .img_posn "center"}} {{/* Default img posn = center */}}
-                        <div class="project_img", style="background: url({{ .image | absURL }}) {{ $entry_posn }}"></div>
+                        {{ $entry_fit := cond (isset . "img_fit") .img_fit "fill" }} {{/* Default: crop to fill */}}
+                        {{ partial "card_image.html" (dict "image" .image "posn" $entry_posn "fit" $entry_fit "class" "project_img") }}
 
                         <div class="card_description">
-                            <h3 class="no_margins">{{ .title }}</h3>
-                            <h5 class="no_margins">{{ .blurb | markdownify}}</h5>
+                            <h3 class="no_margins card_title">{{ .title }}</h3>
+                            <p class="no_margins card_blurb">{{ .blurb | markdownify}}</p>
 
-                            <div class="card_buttons">
-                                <a class="blue_text_button" href={{.paper}} target="_blank">
-                                    Read more
-                                    <svg class="blue_arrow_icon" width="23" height="23">
-                                        <use href="#circle_arrow"/>
-                                    </svg>
-                                </a>
+                            <div class="card_footer">
+                                <div class="card_buttons">
+                                    <a class="blue_text_button" href="{{ .url | absURL }}">
+                                        Read more
+                                        {{ partial "arrow_icon.html" "blue" }}
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 {{ end }}
+            </div>
 
-                <a class="blue_bounded_button" style="margin-left: auto" href="/projects/">
-                    All projects
-                    <svg class="blue_arrow_icon" width="23" height="23">
-                        <use href="#circle_arrow"/>
-                    </svg>
+            <div class="section_footer">
+                <a class="blue_text_button" href="{{ "projects/" | absURL }}">
+                    View all projects
+                    {{ partial "arrow_icon.html" "blue" }}
                 </a>
             </div>
         </div>

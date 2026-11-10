@@ -1,0 +1,33 @@
+{{- /*
+    Renders the artwork block for a card (or the headshot).
+
+    Params:
+      image - path to the image, relative to /static (e.g. "images/foo.gif")
+      posn  - background-position value (default "center")
+      fit   - "fill" (default) crops the image to completely fill the box,
+              "fit" scales the whole image down so that none of it is cropped.
+      class - extra classes to put on the element
+
+    Animated GIFs are emitted as two custom properties: --img-static points at a
+    pre-rendered still frame ("<name>.still.jpg", generated with ffmpeg and
+    committed next to the GIF), and --img-anim points at the GIF itself. The
+    stylesheet decides which one is shown, so that GIFs only animate on hover on
+    pointer devices while still auto-playing on touch screens.
+*/ -}}
+{{- $image := .image -}}
+{{- $posn := .posn | default "center" -}}
+{{- $class := .class | default "" -}}
+{{- $fit := .fit | default "fill" -}}
+{{- if in (slice "fit" "contain") (lower $fit) -}}
+    {{- $class = printf "%s card_img_fit" $class -}}
+{{- end -}}
+{{- $is_gif := strings.HasSuffix (lower $image) ".gif" -}}
+{{- $static := $image -}}
+{{- if $is_gif -}}
+    {{- $static = printf "%s.still.jpg" (strings.TrimSuffix ".gif" $image) -}}
+{{- end -}}
+{{- $style := printf "--img-static: url('%s'); --img-posn: %s;" ($static | absURL) $posn -}}
+{{- if $is_gif -}}
+    {{- $style = printf "%s --img-anim: url('%s');" $style ($image | absURL) -}}
+{{- end -}}
+<div class="card_img {{ $class }}" style="{{ $style | safeCSS }}"></div>

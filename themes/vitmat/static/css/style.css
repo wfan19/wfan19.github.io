@@ -1,6 +1,6 @@
 :root{
   --white: #FFFFFF;
-  --black: #000000;
+  --black: #161616;
   --dark-red: #A71B5F;
   --red: #D2077A;
   --medium-light-red: #f38ab3;
@@ -9,7 +9,7 @@
   --dark-blue: #4B6BBF;
   --blue: #648FFF;
   --medium-light-blue: #8BBAFF;
-  --light-blue: #B6D3FF;
+  --light-blue: #C3D6FF;
   --faint-blue: #E3EEFF;
   --dark-yellow: #BF8400;
   --yellow: #FFB000;
@@ -18,9 +18,27 @@
   --faint-yellow: #FFF7E7;
   --dark-green: #128354;
   --green: #2DB67D;
-  --medium-light-green: #C9E4b4;
+  --medium-light-green: #A4DFB8;
   --light-green: #DFF4D5;
   --faint-green: #F6FFF2;
+
+  /* Default (resting) drop shadow colour */
+  --shadow-grey: #83838399;
+
+  /* Line weights */
+  --section-linewidth: 3px;   /* outer section frames */
+  --outline-linewidth: 2px;   /* cards, images, buttons */
+
+  /* Layout */
+  --section-width: 1050px;
+  --center-width: 764px;      /* 1050 - 2*140 side padding - 2*3 border */
+
+  /* Resting / hover shadow offsets. Hover grows by 1px. */
+  --card-shadow-size: 6px;
+  --card-shadow-size-hover: 7px;
+  --image-shadow-size: 7px;
+  --button-shadow-size: 3px;
+  --button-shadow-size-hover: 4px;
 }
 
 a{
@@ -43,7 +61,7 @@ html{
   margin: 0px;
   padding: 0px;
   scroll-behavior: smooth;
-}  
+}
 
 body{
   margin: 0px;
@@ -66,8 +84,8 @@ body{
 
 h1{
   font-family: Montserrat;
-  font-weight: 800;
-  font-size: 2.5em;
+  font-weight: 700;
+  font-size: 32px;
   color: var(--black);
 
   margin: 0px 0px 0px 0px;
@@ -76,24 +94,23 @@ h1{
 h2{
   font-family: Montserrat;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 24px;
   color: var(--black);
 }
 
 h3{
   color: var(--black);
   font-family: Lato;
-  font-weight: normal;
-  font-size: 21px;
   font-weight: 600;
+  font-size: 21px;
 }
 
 /*  Project card text  */
 h4{
   color: var(--black);
   font-family: Lato;
-  font-weight: "bold";
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 14px;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 5px;
@@ -122,35 +139,73 @@ p, li{
 }
 
 .outline_shadow{
-  border: 2px solid var(--black);
+  border: var(--outline-linewidth) solid var(--black);
   border-radius: 8px;
-  box-shadow: 7px 7px 0px var(--black);
+  box-shadow: var(--image-shadow-size) var(--image-shadow-size) 0px var(--shadow-grey);
 }
 
 
-/*  Image styling  */
+/* =========================== */
+/*        Image styling        */
+/* =========================== */
+
+/* Card / headshot images. The image URL is supplied by the `card_image`
+   partial as custom properties so that animated GIFs can be swapped for a
+   still frame (see the GIF playback rules at the bottom of this file). */
+.card_img{
+  background-image: var(--img-static);
+  background-position: var(--img-posn, center);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* `img_fit = "fit"` on an entry in hugo.toml - scale the whole image down so
+   that nothing is cropped, instead of filling the box and cropping the
+   overflow. The leftover space shows the card's own background. */
+.card_img_fit{
+  background-size: contain;
+
+  /* Keep the artwork off the card's edges. background-origin shrinks the area
+     the image is fitted into; the card background still paints behind it. */
+  box-sizing: border-box;
+  padding: 10px;
+  background-origin: content-box;
+}
 
 
 /*  Section styling  */
 .header_section{
   padding-top: 60px;
-  padding-bottom: 60px;
-  border: 4px solid var(--black);
-  margin-top: 50px;
+  padding-bottom: 48px;
+  border: var(--section-linewidth) solid var(--black);
+  margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
-  width: 1050px;
+  width: var(--section-width);
+  box-sizing: border-box;
+}
+
+/* The home page hero sits lower in the frame than other page headers */
+.intro_section{
+  padding-top: 100px;
+}
+
+/* The standalone publications list */
+.publications_section{
+  padding-top: 100px;
+  padding-bottom: 60px;
 }
 
 .section{
-  padding-top: 40px;
+  padding-top: 48px;
   padding-bottom: 60px;
-  border-bottom: 4px solid var(--black);
-  border-left: 4px solid var(--black);
-  border-right: 4px solid var(--black);
+  border-bottom: var(--section-linewidth) solid var(--black);
+  border-left: var(--section-linewidth) solid var(--black);
+  border-right: var(--section-linewidth) solid var(--black);
   margin-left: auto;
   margin-right: auto;
-  width: 1050px;
+  width: var(--section-width);
+  box-sizing: border-box;
 }
 
 main{
@@ -164,17 +219,17 @@ content{
 img{
   width: 90%;
   height: auto;
-  
+
   margin: 40px auto 40px auto;
   display: block;
 
-  border: 2px solid var(--black);
+  border: var(--outline-linewidth) solid var(--black);
   border-radius: 12px;
-  box-shadow: 7px 7px 0px var(--black)
+  box-shadow: var(--image-shadow-size) var(--image-shadow-size) 0px var(--shadow-grey);
 }
 
 .center{
-  max-width: 770px;
+  max-width: var(--center-width);
   margin-left: auto;
   margin-right: auto;
 
@@ -189,48 +244,93 @@ img{
 .header_container{
   display: flex;
   flex-direction: column;
-  row-gap: 12px;
+  row-gap: 29px;
 }
 
 .header_bar{
   display: flex;
   flex-direction: row;
-  column-gap: auto;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0px;
 }
 
 .header_menu{
   display: flex;
   flex-direction: row;
+  align-items: center;
   column-gap: 20px;
 }
 
 .header_menu_text{
   font-family: Montserrat;
   font-weight: 400;
-  font-size: 16px;
-  color: var(--black)
+  font-size: 15px;
+  color: var(--black);
+  white-space: nowrap;
+}
+
+.header_menu_text.current_page{
+  text-decoration: underline;
 }
 
 .header_title{
-  display:flex;
+  display: flex;
   flex-direction: column;
-  row-gap: 4px;
-  flex-grow: 1
+  row-gap: 5px;
+}
+
+.header_subtitle{
+  font-family: Lato;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  color: var(--black);
 }
 
 .header_body{
   display: flex;
   flex-direction: row;
-  column-gap: 70px;
-  align-items: center;
+  justify-content: space-between;
+  align-items: stretch;
+  column-gap: 30px;
+  padding: 20px 0px;
+}
+
+.header_body_column{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 24px;
+  padding: 10px 0px;
+
+  flex-basis: 400px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  max-width: 400px;
+}
+
+.header_body_text p{
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 0px;
+  margin-bottom: 1.25em;
+}
+
+.header_body_text p:last-child{
+  margin-bottom: 0px;
 }
 
 .headshot_img{
-  flex-basis: 288px;
+  flex-basis: 284px;
   flex-grow: 0;
   flex-shrink: 0;
-  height: 300px;
-  background-size:cover !important;
+  height: 361px;
+  align-self: center;
+
+  /* Equivalent of object-fit: fill - stretch to the box, ignoring the
+     source image's aspect ratio. (.card_img defaults to cover.) */
+  background-size: 100% 100%;
 }
 
 
@@ -244,68 +344,129 @@ img{
 }
 
 .research_img{
-  height: 300px;
-  flex-basis: 220px;
+  flex-basis: 222px;
   flex-grow: 0;
   flex-shrink: 0;
+  align-self: stretch;
 
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-
-  border-right: 3px solid var(--black);
+  border-right: var(--outline-linewidth) solid var(--black);
 }
 
 .horizontal_card{
   display: flex;
   flex-direction: row;
   column-gap: 30px;
-  
+
   overflow: hidden;
 
   background: var(--white);
-  box-shadow: 7px 7px 0px var(--black);
-  border: 3px solid var(--black);
+  box-shadow: var(--card-shadow-size) var(--card-shadow-size) 0px var(--shadow-grey);
+  border: var(--outline-linewidth) solid var(--black);
   border-radius: 12px;
 
-  align-items: center;
-  padding-right: 30px;
-
-  cursor: pointer;
+  align-items: stretch;
+  padding-right: 32px;
 }
 
 .small_vertical_card{
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
 
   overflow: hidden;
 
   background: var(--white);
-  box-shadow: 7px 7px 0px var(--black);
-  border: 3px solid var(--black);
+  box-shadow: var(--card-shadow-size) var(--card-shadow-size) 0px var(--shadow-grey);
+  border: var(--outline-linewidth) solid var(--black);
   border-radius: 12px;
+}
 
+/* Publication cards are not clickable - their links live in the card footer -
+   but they still get the hover shadow. Only cards that actually navigate get a
+   pointer cursor and an :active state. */
+.clickable_card{
   cursor: pointer;
 }
 
 .research_entry:hover{
-  box-shadow: 7px 7px 0px var(--yellow);
-}
-
-.research_entry:active{
-  box-shadow: 7px 7px 0px var(--dark-yellow);
-}
-
-.card_buttons{
-  display: flex;
-  flex-direction: row;
-  column-gap: 50px;
-  margin-left: auto;
+  box-shadow: var(--card-shadow-size-hover) var(--card-shadow-size-hover) 0px var(--yellow);
 }
 
 .card_description{
   display: flex;
   flex-direction: column;
-  row-gap: 16px;
+  row-gap: 10px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 0px;
+}
+
+/* Cards with no thumbnail still need a left gutter */
+.card_description_full{
+  padding-left: 32px;
+}
+
+.card_title{
+  font-family: Lato;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--black);
+}
+
+.card_authors{
+  font-family: Lato;
+  font-weight: normal;
+  font-size: 12.4px;
+  line-height: normal;
+  color: var(--black);
+}
+
+.card_blurb{
+  font-family: Lato;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: normal;
+  color: var(--black);
+}
+
+/* Venue sits on the same row as the card's link buttons, and pushes them right */
+.card_footer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 30px;
+  width: 100%;
+}
+
+.card_venue{
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 0px;
+
+  font-family: Lato;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 12.4px;
+  color: var(--black);
+}
+
+.card_buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 30px;
+  margin-left: auto;
+}
+
+/* Right-aligned "View all ..." row at the end of a section */
+.section_footer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 /* =========================== */
@@ -318,27 +479,19 @@ img{
 }
 
 .project_img{
-  height: 200px;
-  flex-basis: 220px;
+  flex-basis: 222px;
   flex-grow: 0;
   flex-shrink: 0;
+  align-self: stretch;
 
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-
-  border-right: 3px solid var(--black);
+  border-right: var(--outline-linewidth) solid var(--black);
 }
 
 .small_project_img{
   height: 200px;
   width: 100%;
-  background-size: cover !important;
 
-  border-bottom: 3px solid var(--black);
-}
-
-.project_entry:hover{
-  box-shadow: 7px 7px 0px var(--blue);
+  border-bottom: var(--outline-linewidth) solid var(--black);
 }
 
 .project_grid{
@@ -349,8 +502,12 @@ img{
   margin-bottom: 50px;
 }
 
-.project_entry:active{
-  box-shadow: 7px 7px 0px var(--dark-blue);
+.project_entry.clickable_card:hover{
+  box-shadow: var(--card-shadow-size-hover) var(--card-shadow-size-hover) 0px var(--blue);
+}
+
+.project_entry.clickable_card:active{
+  box-shadow: var(--card-shadow-size-hover) var(--card-shadow-size-hover) 0px var(--dark-blue);
 }
 
 /* ========================================================================================= */
@@ -360,15 +517,17 @@ img{
 .header_buttons_container{
   display: flex;
   flex-direction: row;
-  width:100%;
-  column-gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+  column-gap: 24px;
+  row-gap: 12px;
 }
 
-.green_bounded_button{
-  /* TODO: Fix these! */
+/* Shared geometry for the "card" style buttons (CV / Scholar / All projects) */
+.green_bounded_button,
+.blue_bounded_button{
   height: auto;
   width: auto;
-  max-width: 33%;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 20px;
@@ -384,16 +543,17 @@ img{
   column-gap: 8px;
 
   background: var(--white);
-  box-shadow: 4px 4px 0px var(--black);
-  border: 2px solid var(--black);
+  box-shadow: var(--button-shadow-size) var(--button-shadow-size) 0px var(--shadow-grey);
+  border: var(--outline-linewidth) solid var(--black);
   border-radius: 15px;
 
-  font-family: lato;
+  font-family: Lato;
   font-weight: bold;
   color: var(--black);
-  font-size:15;
-  text-align:center;
+  font-size: 15px;
+  text-align: center;
   text-decoration: none;
+  user-select: none;
 }
 
 /* Define basic color variants for arrow icon */
@@ -409,30 +569,31 @@ img{
   fill: var(--light-blue)
 }
 
-/* Buttons for the intro section */
+/* Card buttons keep their white fill on hover/active - only the drop shadow
+   changes colour, matching the publication / project card interaction. */
 .green_bounded_button:hover{
-  background: var(--light-green)
+  box-shadow: var(--button-shadow-size-hover) var(--button-shadow-size-hover) 0px var(--green);
 }
 
 .green_bounded_button:active{
-  background: var(--green)
+  box-shadow: var(--button-shadow-size-hover) var(--button-shadow-size-hover) 0px var(--dark-green);
 }
 
-.header_button:hover .green_arrow_icon{
-  fill: var(--green)
+.blue_bounded_button:hover{
+  box-shadow: var(--button-shadow-size-hover) var(--button-shadow-size-hover) 0px var(--blue);
 }
 
-.header_button:active .green_arrow_icon{
-  fill: var(--dark-green)
+.blue_bounded_button:active{
+  box-shadow: var(--button-shadow-size-hover) var(--button-shadow-size-hover) 0px var(--dark-blue);
 }
 
-/* Text buttons (for the research and project section for now */
-/* Yellow text button and states */
-.yellow_text_button{
+/* Text buttons (for the research and project sections) */
+.yellow_text_button,
+.blue_text_button{
   height: auto;
   width: auto;
 
-  background: white;
+  background: transparent;
   border: 0px;
 
   flex-basis: auto;
@@ -444,12 +605,13 @@ img{
   align-items: center;
   column-gap: 8px;
 
-  font-family: lato;
+  font-family: Lato;
   font-weight: bold;
   color: var(--black);
-  font-size:15px;
-  text-align:center;
+  font-size: 15px;
+  text-align: center;
   text-decoration: none;
+  white-space: nowrap;
   user-select: none;
 }
 
@@ -469,31 +631,6 @@ img{
   fill: var(--dark-yellow)
 }
 
-.blue_text_button{
-  height: auto;
-  width: auto;
-
-  background: white;
-  border: 0px;
-
-  flex-basis: auto;
-  flex-grow: 0;
-  flex-shrink: 0;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  column-gap: 8px;
-
-  font-family: lato;
-  font-weight: bold;
-  color: var(--black);
-  font-size:15px;
-  text-align:center;
-  text-decoration: none;
-  user-select: none;
-}
-
 .blue_text_button:hover{
   color: var(--blue);
 }
@@ -510,42 +647,24 @@ img{
   fill: var(--dark-blue)
 }
 
-.blue_bounded_button{
-  /* TODO: Fix these! */
-  height: auto;
-  width: auto;
-  max-width: 33%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+/* ========================================================================================= */
+/*                          ANIMATED GIF PLAYBACK                                            */
+/* ========================================================================================= */
+/* Cards whose artwork is a GIF show a still first frame by default. On devices
+   with a real pointer the GIF plays while the card is hovered; on touch devices
+   (where there is no hover) it simply plays all the time. Either way, viewers
+   who have asked for reduced motion keep the still frame. */
 
-  flex-basis: auto;
-  flex-grow: 0;
-  flex-shrink: 0;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  column-gap: 8px;
-
-  background: var(--white);
-  box-shadow: 4px 4px 0px var(--black);
-  border: 2px solid var(--black);
-  border-radius: 15px;
-
-  font-family: lato;
-  font-weight: bold;
-  color: var(--black);
-  font-size:15;
-  text-align:center;
-  text-decoration: none;
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference){
+  .horizontal_card:hover .card_img,
+  .small_vertical_card:hover .card_img{
+    background-image: var(--img-anim, var(--img-static));
+  }
 }
 
-.blue_bounded_button:hover{
-  background: var(--light-blue)
-}
-
-.blue_bounded_button:active{
-  background: var(--blue)
+@media (hover: none) and (prefers-reduced-motion: no-preference),
+       (pointer: coarse) and (prefers-reduced-motion: no-preference){
+  .card_img{
+    background-image: var(--img-anim, var(--img-static));
+  }
 }
