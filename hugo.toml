@@ -15,7 +15,8 @@ url = "pdfs/Bill_Fan_CV_2026-11-09.pdf"
 header = "Hi! I'm Bill"
 img_faceshot = "images/Portrait.png"
 email = "bfan@utexas.edu"
-pronouns = "they/any"
+# pronouns = "they/any"
+pronouns = ""
 
 # Intro section paragraphs - each paragraph is a list entry
 [[params.intro.paragraph]]
