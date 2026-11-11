@@ -668,19 +668,27 @@ img{
 /* Cards whose artwork is a GIF show a still first frame by default. On devices
    with a real pointer the GIF plays while the card is hovered; on touch devices
    (where there is no hover) it simply plays all the time. Either way, viewers
-   who have asked for reduced motion keep the still frame. */
+   who have asked for reduced motion keep the still frame.
+
+   Wherever the GIF is shown it is layered *over* the still rather than swapped
+   for it (the first image in a background-image list is the topmost layer). A
+   GIF is only fetched the moment it is first needed, and until it arrives the
+   top layer paints nothing - so without the still underneath, the card's own
+   white background shows through for the length of the download. That was the
+   flash on the first hover; now the still holds the frame until the GIF is
+   ready to paint over it. */
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference){
   .horizontal_card:hover .card_img,
   .small_vertical_card:hover .card_img{
-    background-image: var(--img-anim, var(--img-static));
+    background-image: var(--img-anim, var(--img-static)), var(--img-static);
   }
 }
 
 @media (hover: none) and (prefers-reduced-motion: no-preference),
        (pointer: coarse) and (prefers-reduced-motion: no-preference){
   .card_img{
-    background-image: var(--img-anim, var(--img-static));
+    background-image: var(--img-anim, var(--img-static)), var(--img-static);
   }
 }
 
