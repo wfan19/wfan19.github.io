@@ -44,10 +44,7 @@
 a{
   cursor: pointer;
   text-decoration: none;
-}
-
-a:visited{
-  color: var(--black)
+  color: var(--dark-blue);
 }
 
 a.fill_div{

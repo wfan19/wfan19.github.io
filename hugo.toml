@@ -19,7 +19,7 @@ pronouns = "they/any"
 
 # Intro section paragraphs - each paragraph is a list entry
 [[params.intro.paragraph]]
-text="""I'm a 2nd year PhD student at the University of Texas, Austin, advised by Dr. Lillian Chin as a member of MERGe Lab. \
+text="""I'm a 2nd year PhD student at the University of Texas, Austin, advised by [Dr. Lillian Chin](https://lillych.in) as a member of [MERGe Lab](https://merge-lab.github.io/). \
 I am a National Science Foundation (NSF) **Graduate Research Fellowship** Fellow."""
 
 [[params.intro.paragraph]]
@@ -28,7 +28,7 @@ For robots, I am currently working on computational tools for optimizing tactile
 For design and accessibility, I am co-designing university campus accessibility solutions that center the knowledge disabled people already have and use."""
 
 [[params.intro.paragraph]]
-text="""Outside of research, I have industry experience working on SLAM at Dusty Robotics and microfluidics automation at XGenomes. \
+text="""Outside of research, I have industry experience working on SLAM at [Dusty Robotics](https://www.dustyrobotics.com/) and microfluidics automation at [XGenomes](https://www.xgenomes.com/). \
 When I'm not working, I like to take care of my house plants, cook, and read :)"""
 
 # Intro section buttons - relative paths are resolved against the site root,
