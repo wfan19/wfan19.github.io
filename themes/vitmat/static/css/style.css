@@ -128,7 +128,7 @@ h6 {
   color: var(--black);
   font-family: Lato;
   font-weight: normal;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 p, li{
@@ -175,7 +175,9 @@ p, li{
 
 /*  Section styling  */
 .header_section{
-  padding-top: 60px;
+  /* Every page uses the same header height, so the menu lands in the same place
+     whichever page you are on. */
+  padding-top: 100px;
   padding-bottom: 48px;
   border: var(--section-linewidth) solid var(--black);
   margin-top: 60px;
@@ -185,14 +187,8 @@ p, li{
   box-sizing: border-box;
 }
 
-/* The home page hero sits lower in the frame than other page headers */
-.intro_section{
-  padding-top: 100px;
-}
-
 /* The standalone publications list */
 .publications_section{
-  padding-top: 100px;
   padding-bottom: 60px;
 }
 
@@ -250,7 +246,10 @@ img{
 .header_bar{
   display: flex;
   flex-direction: row;
-  align-items: center;
+  /* Baseline, not centre: the menu then sits on the title's baseline on every
+     page, whether or not the title has a subtitle under it (as on the home
+     page), so the header bar does not shift about between pages. */
+  align-items: baseline;
   justify-content: space-between;
   padding: 7px 0px;
 }
@@ -311,7 +310,7 @@ img{
 }
 
 .header_body_text p{
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
   margin-top: 0px;
   margin-bottom: 1.25em;
@@ -328,9 +327,11 @@ img{
   height: 361px;
   align-self: center;
 
-  /* Equivalent of object-fit: fill - stretch to the box, ignoring the
-     source image's aspect ratio. (.card_img defaults to cover.) */
-  background-size: 100% 100%;
+  /* The box is portrait while the photo is landscape, so the photo is cropped
+     to fill it rather than squashed into it. The position keeps the subject
+     centred in the crop. */
+  background-size: cover;
+  background-position: 42% 50%;
 }
 
 
@@ -502,6 +503,12 @@ img{
   margin-bottom: 50px;
 }
 
+/* Each card spans two of the four tracks, i.e. two cards per row. Kept in the
+   stylesheet (rather than inline on the card) so the breakpoints can change it. */
+.project_grid > *{
+  grid-column: span 2;
+}
+
 .project_entry.clickable_card:hover{
   box-shadow: var(--card-shadow-size-hover) var(--card-shadow-size-hover) 0px var(--blue);
 }
@@ -647,6 +654,17 @@ img{
   fill: var(--dark-blue)
 }
 
+/* "Back to ..." links reuse the flat text-button style, but put the icon in
+   front of the label and mirror it, so the arrow points the way the link goes.
+   `align-self` keeps the hit area to the text, not the whole column. */
+.back_link{
+  align-self: flex-start;
+}
+
+.back_link .blue_arrow_icon{
+  transform: scaleX(-1);
+}
+
 /* ========================================================================================= */
 /*                          ANIMATED GIF PLAYBACK                                            */
 /* ========================================================================================= */
@@ -666,5 +684,306 @@ img{
        (pointer: coarse) and (prefers-reduced-motion: no-preference){
   .card_img{
     background-image: var(--img-anim, var(--img-static));
+  }
+}
+
+
+/* ========================================================================================= */
+/*                          RESPONSIVE BREAKPOINTS                                           */
+/* ========================================================================================= */
+/* Three layouts, matching the Figma frames. Every breakpoint is a fixed-width band
+   centred in the window: the content column keeps a constant width inside a
+   breakpoint, and the white margin either side of it is the only thing that gives.
+
+     desktop            - 1050px band, 140px band padding   (everything above)
+     tablet  (<=1100px) - 640px band, 64px band padding; the nav moves onto its own
+                          row above the title and the projects become a row of three
+                          vertical cards.      ("Original neobrutalism · Tablet")
+     mobile  (<= 699px) - 362px band, 32px band padding; one column throughout, and
+                          the publication cards go vertical too.
+                                               ("Original neobrutalism · Mobile")
+
+   `--page-margin` is a *minimum* gutter rather than the margin itself: the band is
+   centred by its auto margins, and only gives up width once the window is too narrow
+   to hold it whole.
+
+   Both queries match below 700px, and the mobile block only states what differs from
+   the tablet block, so the later (mobile) rules win. */
+
+
+/* ----------------------------------------------------------------------------------- */
+/*  TABLET                                                                               */
+/* ----------------------------------------------------------------------------------- */
+@media (max-width: 1100px){
+  :root{
+    --section-width: 640px;  /* band, border included */
+    --band-padding: 64px;    /* band edge -> content, so 506px of content */
+    --page-margin: 32px;     /* smallest gutter the band will leave itself */
+  }
+
+  /* The band narrows to 640px but stays a fixed width, centred by the auto margins
+     it already carries - the growing white gutter absorbs the window. `max-width`
+     only bites below 640 + 2*32 = 704px, where the band no longer fits whole.
+     The side gutter moves off `.center`'s max-width onto its own padding. */
+  .header_section,
+  .section{
+    max-width: calc(100% - 2 * var(--page-margin));
+  }
+
+  .center{
+    max-width: none;
+    padding-left: var(--band-padding);
+    padding-right: var(--band-padding);
+    row-gap: 32px;
+  }
+
+  .header_section{
+    margin-top: 32px;
+    padding-top: 32px;
+    padding-bottom: 48px;
+  }
+
+  .section{
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  main{
+    padding-bottom: 32px;
+  }
+
+  /*  Hero  */
+  .header_container{
+    row-gap: 32px;
+  }
+
+  /* The menu sits on its own row above the greeting, spread edge to edge.
+     column-reverse keeps the title first in the markup, where it belongs. */
+  .header_bar{
+    flex-direction: column-reverse;
+    align-items: stretch;
+    row-gap: 32px;
+    padding: 0px;
+  }
+
+  .header_menu{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 8px;
+  }
+
+  .header_title{
+    row-gap: 10px;
+  }
+
+  /* The biography and the portrait share the top row; the CV / Scholar buttons
+     drop out of the copy column onto a row of their own underneath both.
+     `display: contents` on the copy column lifts its two children into this
+     grid so they can be placed in separate rows. */
+  .header_body{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 212px;
+    grid-template-areas:
+      "text    portrait"
+      "actions actions";
+    column-gap: 32px;
+    row-gap: 24px;
+    padding: 0px;
+  }
+
+  .header_body_column{
+    display: contents;
+  }
+
+  .header_body_text{
+    grid-area: text;
+  }
+
+  .header_buttons_container{
+    grid-area: actions;
+  }
+
+  .header_body_text p{
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  .headshot_img{
+    grid-area: portrait;
+    height: 273px;
+    align-self: start;
+  }
+
+  /*  Publications. The card keeps its side-by-side layout; only the blurb goes,
+      as the tablet and mobile cards show title / authors / venue only. */
+  .research_container{
+    row-gap: 32px;
+  }
+
+  .research_entry .card_blurb{
+    display: none;
+  }
+
+  /* The thumbnail is sized for the band, not the window: 140px of a 506px card. */
+  .research_img{
+    flex-basis: 140px;
+  }
+
+  /* The card is too narrow now to keep the venue and the links on one row, so
+     the venue takes a row of its own and the links sit left-aligned underneath,
+     10px below it like every other row of the card. */
+  .card_footer{
+    flex-direction: column;
+    align-items: stretch;
+    row-gap: 10px;
+  }
+
+  .card_venue{
+    flex-grow: 0;
+  }
+
+  .card_buttons{
+    column-gap: 20px;
+  }
+
+  /* Cancels the desktop `margin-left: auto`, which would otherwise keep the
+     links shrink-wrapped against the right edge. Project cards keep it - their
+     single "Read more" does stay right-aligned. */
+  .research_entry .card_buttons{
+    margin-left: 0px;
+  }
+
+  /*  Projects. The horizontal cards become a row of three vertical ones: artwork
+      on top, then the title and the "Read more" link. No blurb, and no rule
+      between the artwork and the text. The band is a known width now, so the
+      track floor only has to be low enough to let three of them fit. */
+  .project_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 18px;
+  }
+
+  .project_entry.horizontal_card{
+    flex-direction: column;
+    padding-right: 0px;
+  }
+
+  .project_entry .project_img{
+    flex-basis: auto;
+    width: 100%;
+    height: 185px;
+    border-right: 0px;
+  }
+
+  .project_entry .card_description{
+    padding: 22px;
+    row-gap: 14px;
+  }
+
+  .project_entry .card_blurb{
+    display: none;
+  }
+
+  /*  The /projects/ grid keeps two cards per row  */
+  .project_grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  .project_grid > *{
+    grid-column: span 1;
+  }
+}
+
+
+/* ----------------------------------------------------------------------------------- */
+/*  MOBILE                                                                               */
+/* ----------------------------------------------------------------------------------- */
+@media (max-width: 699px){
+  :root{
+    --section-width: 362px;  /* band, border included */
+    --band-padding: 32px;    /* band edge -> content, so 292px of content */
+    --page-margin: 24px;     /* smallest gutter the band will leave itself */
+  }
+
+  /* The greeting and the contact line sit further apart than on tablet */
+  .header_title{
+    row-gap: 16px;
+  }
+
+  /*  Hero: portrait first, then the biography, then the buttons  */
+  .header_body{
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "portrait"
+      "text"
+      "actions";
+    row-gap: 32px;
+  }
+
+  /* A short, full-width crop; the `cover` sizing comes from the base rule. */
+  .headshot_img{
+    height: 200px;
+  }
+
+  .header_body_text p{
+    font-size: 13px;
+    line-height: normal;
+  }
+
+  /*  Section titles are centred  */
+  .section > .center > h1{
+    text-align: center;
+  }
+
+  /*  Every card goes vertical: artwork on top, content below  */
+  .horizontal_card{
+    flex-direction: column;
+    padding-right: 0px;
+  }
+
+  .research_img,
+  .project_img{
+    flex-basis: auto;
+    width: 100%;
+    border-right: 0px;
+  }
+
+  .research_img{
+    height: 180px;
+  }
+
+  .project_entry .project_img{
+    height: 235px;
+  }
+
+  .card_description,
+  .card_description_full{
+    padding: 22px;
+    row-gap: 14px;
+  }
+
+  /*  The venue keeps its own row, but further from the links, which go right  */
+  .card_footer{
+    row-gap: 14px;
+  }
+
+  .card_buttons{
+    justify-content: flex-end;
+    column-gap: 22px;
+  }
+
+  .research_container{
+    row-gap: 24px;
+  }
+
+  .project_container,
+  .project_grid{
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }

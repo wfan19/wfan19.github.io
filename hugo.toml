@@ -6,14 +6,14 @@ author="Bill Fan"
 [params]
 favicon="favicon.ico"
 
-## CV - linked from the nav menu on every page, and from the intro button
+## CV - linked from the intro button
 [params.cv]
 url = "pdfs/Bill_Fan_CV_2026-11-09.pdf"
 
 ## Intro section / header configuration
 [params.intro]
 header = "Hi! I'm Bill"
-img_faceshot = "images/Bill_headshot_2026.jpg"
+img_faceshot = "images/Portrait.png"
 email = "bfan@utexas.edu"
 pronouns = "they/any"
 

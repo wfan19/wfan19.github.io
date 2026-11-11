@@ -2,15 +2,12 @@
     Top-right navigation menu.
 
     Params:
-      site    - the site object (pass `.Site`)
       current - slug of the current page ("home", "publications", "projects"),
                 used to underline the active entry
 */ -}}
-{{- $site := .site -}}
 {{- $current := .current | default "" -}}
 <div class="header_menu">
     <a class="header_menu_text{{ if eq $current "home" }} current_page{{ end }}" href="/">Home</a>
     <a class="header_menu_text{{ if eq $current "publications" }} current_page{{ end }}" href="/publications/">Publications</a>
     <a class="header_menu_text{{ if eq $current "projects" }} current_page{{ end }}" href="/projects/">Projects</a>
-    <a class="header_menu_text" href="{{ $site.Params.cv.url | absURL }}" target="_blank" rel="noopener">CV</a>
 </div>

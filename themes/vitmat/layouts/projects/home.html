@@ -11,7 +11,7 @@
                         <h1 class="no_margins">Projects</h1>
                     </div>
 
-                    {{ partial "home_menu.html" (dict "site" .Site "current" "projects") }}
+                    {{ partial "home_menu.html" (dict "current" "projects") }}
                 </div>
 
                 {{/*  For each project entry, create a small project entry card  */}}
@@ -25,7 +25,6 @@
                         {{ $entry_fit := cond (isset . "img_fit") .img_fit "fill" }} {{/* Default: crop to fill */}}
                         <div
                             class="small_vertical_card project_entry clickable_card"
-                            style='background: white; grid-column-end:span 2'
                             onclick="location.href='{{ .url }}'"
                         >
                             {{ partial "card_image.html" (dict "image" .image "posn" $entry_posn "fit" $entry_fit "class" "small_project_img") }}

@@ -8,15 +8,16 @@
 
                 <div class="header_bar">
                     <div class="header_title">
-                        <h1 class="no_margins">Projects.</h1>
+                        <h1 class="no_margins">Projects</h1>
                     </div>
 
-                    <div class="header_menu">
-                        <a class="header_menu_text" href="/">Home</a>
-                        <a class="header_menu_text" href="/projects/">Projects</a>
-                        <a class="header_menu_text" href={{ "pdfs/Bill_Fan_CV_7_19_2024.pdf" | absURL }} target="_blank" >CV</a>
-                    </div>
+                    {{ partial "home_menu.html" (dict "current" "projects") }}
                 </div>
+
+                <a class="blue_text_button back_link" href="{{ "projects/" | absURL }}">
+                    {{ partial "arrow_icon.html" "blue" }}
+                    Back to Projects
+                </a>
 
                 <h2 style="margin-bottom:0px"> {{.Title}} </h2>
 
